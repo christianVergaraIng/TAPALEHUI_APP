@@ -11,20 +11,10 @@
   <header class="nav-header glass-effect" id="main-header">
     <div class="header-inner">
       <div class="logo-container">
-        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#logo-gradient)" />
-          <path d="M2 17L12 22L22 17" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-          <path d="M2 12L12 17L22 12" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-          <defs>
-            <linearGradient id="logo-gradient" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#00f2fe" />
-              <stop offset="1" stop-color="#7000ff" />
-            </linearGradient>
-          </defs>
+        <svg class="logo-icon" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5h88c8.8 0 16 7.2 16 16s-7.2 16-16 16H288 216s0 0 0 0c-16.6 0-32.7 1.9-48.2 5.4c-25.9 5.9-50 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440v16c0 13.3 10.7 24 24 24s24-10.7 24-24V440c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z"></path>
         </svg>
-        <span class="logo-text">COMMUNITY <span class="text-gradient">APP</span></span>
+        <span class="logo-text">TAPA<span class="text-gradient">LEHUI</span></span>
       </div>
 
       <!-- Navigation Menu Tabs -->
@@ -151,15 +141,14 @@
       <div class="hero-content">
         <span class="badge glass-effect">
           <span class="badge-dot"></span>
-          Tecnología en Tendencia
+          COMUNIDAD SUSTENTABLE
         </span>
         <h1 class="hero-title">
-          Conectando <span class="text-gradient">Personas</span>,<br>
-          Construyendo <span class="text-gradient-secondary">Futuro</span>.
+          Vivir en <span class="text-gradient">Comunidad</span>,<br>
+          Regenerar la naturaleza <span class="text-gradient-secondary">Compartir el futuro</span>.
         </h1>
         <p class="hero-description">
-          Una plataforma minimalista impulsada por efectos de vidrio líquido para coordinar, potenciar y dinamizar tus
-          comunidades de manera transparente y eficiente.
+          Más que un lugar para vivir: personas, naturaleza y proyectos productivos construyendo un futuro compartido.
         </p>
         <div class="hero-actions">
           <button type="button" class="btn-primary-gradient lg-btn">
@@ -171,39 +160,39 @@
         </div>
       </div>
 
-      <div class="hero-carousel-container">
-        <div class="modern-carousel">
-          <div class="carousel-track" [style.transform]="'translateX(-' + currentSlideIndex() * 100 + '%)'">
-            <div class="carousel-slide">
-              <img src="assets/image2.jpeg" alt="Modern House 1" class="carousel-img">
+        <!-- <div class="hero-carousel-container">
+          <div class="modern-carousel">
+            <div class="carousel-track" [style.transform]="'translateX(-' + currentSlideIndex() * 100 + '%)'">
+              <div class="carousel-slide">
+                <img src="assets/image2.jpeg" alt="Modern House 1" class="carousel-img">
+              </div>
+              <div class="carousel-slide">
+                <img src="assets/image3.jpeg" alt="Modern House 2" class="carousel-img">
+              </div>
+              <div class="carousel-slide">
+                <img src="assets/image4.jpeg" alt="Modern House 3" class="carousel-img">
+              </div>
             </div>
-            <div class="carousel-slide">
-              <img src="assets/image3.jpeg" alt="Modern House 2" class="carousel-img">
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/image4.jpeg" alt="Modern House 3" class="carousel-img">
-            </div>
-          </div>
 
-          <div class="carousel-indicators">
-            @for (slide of [0, 1, 2]; track slide; let i = $index) {
-            <button class="indicator-dot" [class.active]="currentSlideIndex() === i" (click)="goToSlide(i)"
-              aria-label="Ir a diapositiva"></button>
-            }
-          </div>
+            <div class="carousel-indicators">
+              @for (slide of [0, 1, 2]; track slide; let i = $index) {
+              <button class="indicator-dot" [class.active]="currentSlideIndex() === i" (click)="goToSlide(i)"
+                aria-label="Ir a diapositiva"></button>
+              }
+            </div>
 
-          <button class="carousel-nav-btn prev" (click)="prevSlide()" aria-label="Anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-          <button class="carousel-nav-btn next" (click)="nextSlide()" aria-label="Siguiente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        </div>
-      </div>
+            <button class="carousel-nav-btn prev" (click)="prevSlide()" aria-label="Anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="carousel-nav-btn next" (click)="nextSlide()" aria-label="Siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div> -->
     </section>
 
     <!-- Alternating Zig-Zag Layout -->
@@ -535,8 +524,8 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-info">
-          <span class="footer-logo">COMMUNITY <span class="text-gradient">APP</span></span>
-          <p class="footer-slogan">El futuro de la interacción local, hoy.</p>
+          <span class="footer-logo">TAPA<span class="text-gradient">LEHUI</span></span>
+          <p class="footer-slogan">Vivir en comunidad. Regenerar la naturaleza. Compartir el futuro.</p>
         </div>
         <div class="footer-links-group">
           <div class="footer-col">
@@ -562,7 +551,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Community App. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Tapalehui. Todos los derechos reservados.</p>
         <div class="social-icons">
           <a href="#github" aria-label="GitHub">
             <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -609,10 +598,8 @@
     <div class="login-form-side">
       <div class="login-form-container">
         <div class="login-logo">
-          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#logo-gradient)" />
-            <path d="M2 17L12 22L22 17" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M2 12L12 17L22 12" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <svg class="logo-icon" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5h88c8.8 0 16 7.2 16 16s-7.2 16-16 16H288 216s0 0 0 0c-16.6 0-32.7 1.9-48.2 5.4c-25.9 5.9-50 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440v16c0 13.3 10.7 24 24 24s24-10.7 24-24V440c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z"></path>
           </svg>
           <span class="logo-text">COMMUNITY <span class="text-gradient">APP</span></span>
         </div>
