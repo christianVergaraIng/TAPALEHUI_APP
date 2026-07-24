@@ -17,7 +17,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           </div>
           <div class="brand-text">
             <span class="brand-name">TAPALEHUI</span>
-            <span class="brand-tagline">Comunidad Regenerativa</span>
+            <span class="brand-tagline">Comunidad Sustentable</span>
           </div>
         </a>
 
