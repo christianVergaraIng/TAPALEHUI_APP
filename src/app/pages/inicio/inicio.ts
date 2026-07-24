@@ -32,7 +32,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           <div class="video-container">
             @if (isPlayingVideo()) {
               <iframe
-                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
+                src="https://redtapalehui.com.mx/videoinformativo.html"
                 title="Video Julio - Presentación Tapalehui"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
