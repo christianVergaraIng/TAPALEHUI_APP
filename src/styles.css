@@ -5,8 +5,8 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Colors (Dark mode default variables) */
-  --color-bg-deep: #161A16; /* Fondo principal */
-  --color-bg-dark: #202520; /* Fondo secundario */
+  --color-bg-deep: #1F4620; /* Fondo principal */
+  --color-bg-dark: #022E02; /* Fondo secundario */
   --color-card-bg: #2B312B; /* Tarjetas */
   
   --color-text-primary: #F8F7F2;

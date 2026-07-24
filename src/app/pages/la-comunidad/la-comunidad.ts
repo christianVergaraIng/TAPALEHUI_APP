@@ -21,9 +21,9 @@ import { CountUpComponent } from '../../components/count-up/count-up';
         <div class="identity-grid">
           <div class="identity-card primary">
             <span class="card-tag">¿QUÉ SOMOS?</span>
-            <h2 class="card-heading">Un Ecosistema Vivo de Convivencia y Regeneración</h2>
+            <h2 class="card-heading">Un Ecosistema Vivo de Convivencia y Sustentable</h2>
             <p>
-              Tapalehui no es un fraccionamiento inmobiliario convencional ni una privada cerrada. Somos una comunidad regenerativa comprometida con el desarrollo armónico del ser humano, la conservación del suelo y el fortalecimiento del tejido social en el estado de Morelos.
+              Tapalehui no es un fraccionamiento inmobiliario convencional ni una privada cerrada. Somos una comunidad sustentable comprometida con el desarrollo armónico del ser humano, la conservación del suelo y el fortalecimiento del tejido social en el estado de Morelos.
             </p>
           </div>
 
