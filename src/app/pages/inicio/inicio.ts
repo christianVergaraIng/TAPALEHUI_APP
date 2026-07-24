@@ -33,7 +33,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             @if (isPlayingVideo()) {
               <iframe
                 src="https://redtapalehui.com.mx/videoinformativo.html"
-                title="Video Julio - Presentación Tapalehui"
+                title="Presentación Tapalehui"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
@@ -41,7 +41,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               </iframe>
             } @else {
               <div class="video-poster" (click)="playVideo()">
-                <img src="assets/image2.jpeg" alt="Vista Tapalehui Video Julio" class="poster-img" />
+                <img src="assets/image2.jpeg" alt="Vista Tapalehui" class="poster-img" />
                 <div class="video-overlay">
                   <div class="play-button">
                     <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
@@ -50,7 +50,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                   </div>
                   <div class="video-tag">
                     <span class="video-label">VIDEO OFICIAL</span>
-                    <span class="video-title">Presentación General con Julio</span>
+                    <span class="video-title">Presentación General</span>
                   </div>
                 </div>
               </div>
