@@ -31,14 +31,13 @@ import { CountUpComponent } from '../../components/count-up/count-up';
         <div class="hero-video-box">
           <div class="video-container">
             @if (isPlayingVideo()) {
-              <iframe
-                src="https://redtapalehui.com.mx/videoinformativo.html"
-                title="Presentación Tapalehui"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                class="video-iframe">
-              </iframe>
+              <video
+                src="https://redtapalehui.com.mx/media/video_tapalehui_compressed.mp4"
+                controls
+                autoplay
+                playsinline
+                class="video-player">
+              </video>
             } @else {
               <div class="video-poster" (click)="playVideo()">
                 <img src="assets/image2.jpeg" alt="Vista Tapalehui" class="poster-img" />
@@ -285,10 +284,13 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       position: relative;
     }
 
-    .video-iframe {
+    .video-player {
       width: 100%;
       height: 100%;
+      object-fit: cover;
       border: none;
+      background: #000;
+      display: block;
     }
 
     .video-poster {
