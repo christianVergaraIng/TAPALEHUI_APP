@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CountUpComponent } from '../../components/count-up/count-up';
 
@@ -6,6 +6,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
   selector: 'app-vive',
   standalone: true,
   imports: [RouterLink, CountUpComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
       <!-- Header -->
@@ -19,16 +20,28 @@ import { CountUpComponent } from '../../components/count-up/count-up';
         <!-- Navigation Tabs -->
         <div class="tab-navigation">
           <button (click)="setActiveTab('masterplan')" [class.active]="activeTab() === 'masterplan'" class="tab-btn">
-            🗺️ Master Plan
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;">
+              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/>
+            </svg>
+            Master Plan
           </button>
           <button (click)="setActiveTab('prototipos')" [class.active]="activeTab() === 'prototipos'" class="tab-btn">
-            🏡 Prototipos
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            Prototipos
           </button>
           <button (click)="setActiveTab('multimedia')" [class.active]="activeTab() === 'multimedia'" class="tab-btn">
-            📸 Galería & Videos
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+            </svg>
+            Galería & Videos
           </button>
           <button (click)="setActiveTab('operativa')" [class.active]="activeTab() === 'operativa'" class="tab-btn">
-            📋 Proceso & FAQ
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;">
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+            </svg>
+            Proceso & FAQ
           </button>
         </div>
       </section>
@@ -47,16 +60,28 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                 <img src="assets/image2.jpeg" alt="Trazado La Vista Master Plan" class="mp-bg-img" />
                 <div class="mp-overlay-points">
                   <div class="mp-point" style="top: 30%; left: 25%;" (click)="selectPoint('Pozo Comunitario')">
-                    <span class="point-badge">💧 Pozo Comunitario</span>
+                    <span class="point-badge">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                      Pozo Comunitario
+                    </span>
                   </div>
                   <div class="mp-point" style="top: 45%; left: 60%;" (click)="selectPoint('Casas-Huerta Sector A')">
-                    <span class="point-badge">🏡 Casas-Huerta (Sector A)</span>
+                    <span class="point-badge">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                      Casas-Huerta (Sector A)
+                    </span>
                   </div>
                   <div class="mp-point" style="top: 70%; left: 40%;" (click)="selectPoint('Bio-Huerto Colectivo')">
-                    <span class="point-badge">🌱 Bio-Huerto Colectivo</span>
+                    <span class="point-badge">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/></svg>
+                      Bio-Huerto Colectivo
+                    </span>
                   </div>
                   <div class="mp-point" style="top: 20%; left: 75%;" (click)="selectPoint('Casa Club & SUM')">
-                    <span class="point-badge">🏛️ Casa Club & SUM</span>
+                    <span class="point-badge">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><line x1="2" y1="22" x2="22" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7 12 2"/></svg>
+                      Casa Club & SUM
+                    </span>
                   </div>
                 </div>
               </div>
@@ -64,7 +89,8 @@ import { CountUpComponent } from '../../components/count-up/count-up';
 
             @if (selectedPoint()) {
               <div class="point-info-box">
-                📍 <strong>Punto Seleccionado:</strong> {{ selectedPoint() }}
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <strong>Punto Seleccionado:</strong> {{ selectedPoint() }}
                 <p class="point-desc">Área planificada bajo normas de bioconstrucción y respeto topográfico.</p>
               </div>
             }
@@ -107,9 +133,18 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                   <p class="proto-desc">{{ proto.description }}</p>
                   
                   <div class="proto-specs">
-                    <span>🛏️ <app-count-up [end]="proto.rooms"></app-count-up> Recámaras</span>
-                    <span>🛁 <app-count-up [end]="proto.baths"></app-count-up> Baños</span>
-                    <span>🌱 Huerto <app-count-up [end]="proto.huertoSize"></app-count-up> m²</span>
+                    <span>
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M2 4v16"/><path d="M2 8h20v12"/><path d="M22 12v8"/><path d="M18 12V8a2 2 0 0 0-2-2H4"/></svg>
+                      <app-count-up [end]="proto.rooms"></app-count-up> Recámaras
+                    </span>
+                    <span>
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-2.12 0l-.88.88a1.5 1.5 0 0 0 0 2.12L6 9"/><path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3a1 1 0 0 1 1-1z"/></svg>
+                      <app-count-up [end]="proto.baths"></app-count-up> Baños
+                    </span>
+                    <span>
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/></svg>
+                      Huerto <app-count-up [end]="proto.huertoSize"></app-count-up> m²
+                    </span>
                   </div>
 
                   <a routerLink="/contacto" class="btn-select-proto">Solicitar Planos & Cotización &rarr;</a>

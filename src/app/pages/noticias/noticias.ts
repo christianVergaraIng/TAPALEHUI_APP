@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CountUpComponent } from '../../components/count-up/count-up';
 
 @Component({
   selector: 'app-noticias',
   standalone: true,
   imports: [CountUpComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
       <!-- Header -->
@@ -45,8 +46,14 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                 <img [src]="post.image" [alt]="post.caption" class="insta-post-img" />
                 <div class="insta-post-overlay">
                   <div class="insta-stats">
-                    <span>❤️ <app-count-up [end]="post.likes"></app-count-up></span>
-                    <span>💬 <app-count-up [end]="post.comments"></app-count-up></span>
+                    <span>
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align: -2px; margin-right: 3px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      <app-count-up [end]="post.likes"></app-count-up>
+                    </span>
+                    <span>
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 3px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                      <app-count-up [end]="post.comments"></app-count-up>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -74,8 +81,14 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                 <h3 class="evento-title">{{ evt.title }}</h3>
                 <p class="evento-desc">{{ evt.desc }}</p>
                 <div class="evento-meta">
-                  <span>⏰ {{ evt.time }}</span>
-                  <span>📍 {{ evt.location }}</span>
+                  <span>
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    {{ evt.time }}
+                  </span>
+                  <span>
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {{ evt.location }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -87,7 +100,11 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       @if (selectedInstaPost()) {
         <div class="modal-backdrop" (click)="closeInstaModal()">
           <div class="modal-card" (click)="$event.stopPropagation()">
-            <button class="modal-close" (click)="closeInstaModal()">✕</button>
+            <button class="modal-close" (click)="closeInstaModal()">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
             <div class="modal-grid">
               <div class="modal-img-wrap">
                 <img [src]="selectedInstaPost()?.image" [alt]="selectedInstaPost()?.caption" />
@@ -99,8 +116,14 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                 </div>
                 <p class="modal-caption">{{ selectedInstaPost()?.caption }}</p>
                 <div class="modal-footer-stats">
-                  <span>❤️ {{ selectedInstaPost()?.likes }} Me gusta</span>
-                  <span>📅 {{ selectedInstaPost()?.date }}</span>
+                  <span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align: -2px; margin-right: 3px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    {{ selectedInstaPost()?.likes }} Me gusta
+                  </span>
+                  <span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 3px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    {{ selectedInstaPost()?.date }}
+                  </span>
                 </div>
               </div>
             </div>

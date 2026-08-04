@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy, inject } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { CountUpComponent } from '../../components/count-up/count-up';
 
@@ -6,12 +7,19 @@ import { CountUpComponent } from '../../components/count-up/count-up';
   selector: 'app-inicio',
   standalone: true,
   imports: [RouterLink, CountUpComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
       <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-content">
-          <div class="hero-badge">🌿 Comunidad Ecológica & Sostenible</div>
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+            Comunidad Ecológica & Sostenible
+          </div>
           <h1 class="hero-title">
             Vivir en comunidad.<br/>
             <span class="gradient-text">Regenerar la naturaleza.</span><br/>
@@ -40,7 +48,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               </video>
             } @else {
               <div class="video-poster" (click)="playVideo()">
-                <img src="assets/image2.jpeg" alt="Vista Tapalehui" class="poster-img" />
+                <img src="assets/image2.jpeg" alt="Vista Tapalehui" class="poster-img" loading="eager" decoding="async" />
                 <div class="video-overlay">
                   <div class="play-button">
                     <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
@@ -72,7 +80,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           @for (pilar of pilares; track pilar.id) {
             <div class="pilar-card">
               <div class="pilar-icon-wrapper" [style.background]="pilar.gradient">
-                <span class="pilar-icon">{{ pilar.icon }}</span>
+                <span class="pilar-icon" [innerHTML]="getSanitizedSvg(pilar.svgIcon)"></span>
               </div>
               <h3 class="pilar-title">{{ pilar.title }}</h3>
               <p class="pilar-desc">{{ pilar.description }}</p>
@@ -95,7 +103,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           @for (proj of proyectos; track proj.id) {
             <div class="proyecto-card">
               <div class="proyecto-image-wrapper">
-                <img [src]="proj.image" [alt]="proj.title" class="proyecto-img" />
+                <img [src]="proj.image" [alt]="proj.title" class="proyecto-img" loading="lazy" decoding="async" />
                 <div class="proyecto-badge">{{ proj.tag }}</div>
               </div>
               <div class="proyecto-body">
@@ -680,7 +688,12 @@ import { CountUpComponent } from '../../components/count-up/count-up';
   `]
 })
 export class InicioComponent {
+  private sanitizer = inject(DomSanitizer);
   isPlayingVideo = signal(false);
+
+  getSanitizedSvg(rawSvg: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(rawSvg);
+  }
 
   playVideo() {
     this.isPlayingVideo.set(true);
@@ -689,42 +702,42 @@ export class InicioComponent {
   pilares = [
     {
       id: 1,
-      icon: '🤝',
+      svgIcon: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
       title: 'Comunidad',
       description: 'Convivencia activa, gobernanza colaborativa y fortalecimiento constante del tejido social.',
       gradient: 'linear-gradient(135deg, #295C2B 0%, #1C421E 100%)'
     },
     {
       id: 2,
-      icon: '🌱',
+      svgIcon: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`,
       title: 'Sustentabilidad',
       description: 'Gestión responsable de energía solar, pozo comunitario y autonomía de recursos vitales.',
       gradient: 'linear-gradient(135deg, #497541 0%, #295C2B 100%)'
     },
     {
       id: 3,
-      icon: '🔄',
+      svgIcon: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>`,
       title: 'Regeneración',
       description: 'Reforestación de flora nativa, bioconstrucción y técnicas de agricultura regenerativa.',
       gradient: 'linear-gradient(135deg, #84CC16 0%, #4D7C0F 100%)'
     },
     {
       id: 4,
-      icon: '🙋‍♂️',
+      svgIcon: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>`,
       title: 'Participación',
       description: 'Faenas de voluntariado, toma de decisiones horizontales y co-creación constante.',
       gradient: 'linear-gradient(135deg, #C67C52 0%, #A05B33 100%)'
     },
     {
       id: 5,
-      icon: '🌐',
+      svgIcon: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
       title: 'Inclusión',
       description: 'Apertura para familias, especialistas, estudiantes y diversidad de perfiles en un entorno seguro.',
       gradient: 'linear-gradient(135deg, #556B2F 0%, #3B4B20 100%)'
     },
     {
       id: 6,
-      icon: '☀️',
+      svgIcon: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`,
       title: 'Bienestar',
       description: 'Vivir en contacto directo con la naturaleza, aire puro y una atmósfera serena y saludable.',
       gradient: 'linear-gradient(135deg, #D4A373 0%, #C67C52 100%)'

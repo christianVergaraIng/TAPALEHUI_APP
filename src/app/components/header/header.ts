@@ -1,10 +1,11 @@
-import { Component, signal, input, output } from '@angular/core';
+import { Component, signal, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="app-header">
       <div class="header-container">
@@ -233,7 +234,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       padding: 1rem 1.5rem 1.5rem;
       border-top: 1px solid var(--border-color);
       background: var(--header-bg);
-      animation: slideDown 0.22s ease both;
+      animation: slideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+      will-change: transform, opacity;
     }
 
     @keyframes slideDown {

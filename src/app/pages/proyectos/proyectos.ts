@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CountUpComponent } from '../../components/count-up/count-up';
 
@@ -6,6 +6,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
   selector: 'app-proyectos',
   standalone: true,
   imports: [RouterLink, CountUpComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
       <!-- Header -->
@@ -38,7 +39,12 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                 <h4>Puntos Clave:</h4>
                 <ul>
                   @for (feat of proj.features; track feat) {
-                    <li>✔️ {{ feat }}</li>
+                    <li>
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                      {{ feat }}
+                    </li>
                   }
                 </ul>
               </div>

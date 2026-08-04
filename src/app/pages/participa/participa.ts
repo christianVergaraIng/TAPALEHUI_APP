@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CountUpComponent } from '../../components/count-up/count-up';
 
 @Component({
   selector: 'app-participa',
   standalone: true,
   imports: [CountUpComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
       <!-- Header -->
@@ -27,7 +28,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
         <div class="audiencias-grid">
           @for (aud of audiencias; track aud.title) {
             <div class="audiencia-card">
-              <div class="aud-icon">{{ aud.icon }}</div>
+              <div class="aud-icon" [innerHTML]="aud.svgIcon"></div>
               <h3 class="aud-title">{{ aud.title }}</h3>
               <p class="aud-desc">{{ aud.desc }}</p>
             </div>
@@ -50,9 +51,9 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               Iniciativas de bio-agricultura, agregación de valor a la cosecha local, huertos medicinales y emprendimientos sostenibles con comercio justo.
             </p>
             <ul>
-              <li>🌿 Agricultura Regenerativa</li>
-              <li>🐝 Apicultura & Miel Orgánica</li>
-              <li>🍞 Bioconstrucción y Talleres</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/></svg> Agricultura Regenerativa</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><circle cx="12" cy="12" r="8"/><path d="M12 2v20M2 12h20"/></svg> Apicultura & Miel Orgánica</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Bioconstrucción y Talleres</li>
             </ul>
           </div>
 
@@ -63,9 +64,9 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               Desarrollo de prototipos de ecotecnología, monitoreo de la biodiversidad, física de suelos y sistemas de purificación de agua sin químicos.
             </p>
             <ul>
-              <li>📊 Monitoreo de Suelos</li>
-              <li>💧 Tecnologías Hídricas</li>
-              <li>☀️ Energías Renovables</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Monitoreo de Suelos</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg> Tecnologías Hídricas</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg> Energías Renovables</li>
             </ul>
           </div>
 
@@ -76,9 +77,9 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               Seminarios, campamentos escolares, residencias artísticas y programas de formación para escuelas y comunidades vecinas.
             </p>
             <ul>
-              <li>🎒 Visitas Guiadas Escolares</li>
-              <li>🎨 Residencias Artísticas</li>
-              <li>🧠 Talleres de Gobernanza</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Visitas Guiadas Escolares</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.7-.72 1.7-1.65 0-.43-.17-.83-.44-1.14-.29-.33-.46-.77-.46-1.26 0-1.01.82-1.83 1.83-1.83H17c2.76 0 5-2.24 5-5 0-4.97-4.48-9-10-9z"/></svg> Residencias Artísticas</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"/></svg> Talleres de Gobernanza</li>
             </ul>
           </div>
         </div>
@@ -92,7 +93,10 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             Completa tu registro en la Red Tapalehui y conecta con miembros, eventos y oportunidades de voluntariado.
           </p>
           <button (click)="openModal()" class="btn-join-main">
-            ✨ Quiero Unirme a la Red
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 6px;">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            Quiero Unirme a la Red
           </button>
         </div>
       </section>
@@ -101,13 +105,20 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       @if (showModal()) {
         <div class="modal-backdrop" (click)="closeModal()">
           <div class="modal-content" (click)="$event.stopPropagation()">
-            <button class="modal-close" (click)="closeModal()">✕</button>
+            <button class="modal-close" (click)="closeModal()">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
             <h2 class="modal-title">Únete a la Red Tapalehui</h2>
             <p class="modal-subtitle">Indícanos tu perfil para ponernos en contacto contigo.</p>
 
             @if (formSubmitted()) {
               <div class="success-message">
-                ✅ ¡Gracias por registrarte! Hemos recibido tu solicitud y te contactaremos en breve.
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 6px;">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                ¡Gracias por registrarte! Hemos recibido tu solicitud y te contactaremos en breve.
               </div>
             } @else {
               <form (submit)="submitForm($event)" class="modal-form">
@@ -542,14 +553,14 @@ export class ParticipaComponent {
   }
 
   audiencias = [
-    { icon: '🏡', title: 'Habitantes', desc: 'Residentes de La Vista y la zona que buscan construir tejido social activo.' },
-    { icon: '🔬', title: 'Especialistas', desc: 'Ingenieros, arquitectos bioclimáticos y biólogos para proyectos clave.' },
-    { icon: '📚', title: 'Investigadores', desc: 'Académicos en permacultura, física de suelos y dinámicas sociales.' },
-    { icon: '🧑‍🌾', title: 'Productores', desc: 'Agricultores locales que suman cosechas y técnicas regenerativas.' },
-    { icon: '🍳', title: 'Chefs', desc: 'Gastrónomos enfocados en cocina de origen y consumo responsable.' },
-    { icon: '🏛️', title: 'Universidades', desc: 'Instituciones para prácticas profesionales y estancias de campo.' },
-    { icon: '🎒', title: 'Escuelas', desc: 'Comunidades educativas para talleres y concientización ambiental.' },
-    { icon: '👨‍👩‍👧‍👦', title: 'Familias', desc: 'Grupos familiares buscando contacto directo con la tierra y el bienestar.' },
-    { icon: '🎓', title: 'Estudiantes', desc: 'Jóvenes aprendices y voluntarios en faenas y ecotecnología.' }
+    { svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>`, title: 'Habitantes', desc: 'Residentes de La Vista y la zona que buscan construir tejido social activo.' },
+    { svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18h12M12 2v10m-4-6h8"/></svg>`, title: 'Especialistas', desc: 'Ingenieros, arquitectos bioclimáticos y biólogos para proyectos clave.' },
+    { svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`, title: 'Investigadores', desc: 'Académicos en permacultura, física de suelos y dinámicas sociales.' },
+    { svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/></svg>`, title: 'Productores', desc: 'Agricultores locales que suman cosechas y técnicas regenerativas.' },
+    { svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>`, title: 'Chefs', desc: 'Gastrónomos enfocados en cocina de origen y consumo responsable.' },
+    { svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 20 7 4 7 12 2"/></svg>`, title: 'Universidades', desc: 'Instituciones para prácticas profesionales y estancias de campo.' },
+    { svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`, title: 'Escuelas', desc: 'Comunidades educativas para talleres y concientización ambiental.' },
+    { svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>`, title: 'Familias', desc: 'Grupos familiares buscando contacto directo con la tierra y el bienestar.' },
+    { svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`, title: 'Estudiantes', desc: 'Jóvenes aprendices y voluntarios en faenas y ecotecnología.' }
   ];
 }

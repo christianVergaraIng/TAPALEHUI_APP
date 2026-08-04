@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CountUpComponent } from '../../components/count-up/count-up';
 
 @Component({
   selector: 'app-la-comunidad',
   standalone: true,
   imports: [CountUpComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
       <!-- Header Banner -->
@@ -29,7 +30,11 @@ import { CountUpComponent } from '../../components/count-up/count-up';
 
           <div class="mision-vision-stack">
             <div class="mv-card">
-              <div class="mv-icon">🎯</div>
+              <div class="mv-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
               <div class="mv-content">
                 <h3>Misión</h3>
                 <p>
@@ -39,7 +44,11 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             </div>
 
             <div class="mv-card">
-              <div class="mv-icon">🔭</div>
+              <div class="mv-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
               <div class="mv-content">
                 <h3>Visión</h3>
                 <p>
@@ -104,7 +113,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           <div class="diff-grid">
             @for (diff of diferenciadores; track diff.title) {
               <div class="diff-card">
-                <div class="diff-icon">{{ diff.icon }}</div>
+                <div class="diff-icon" [innerHTML]="diff.svgIcon"></div>
                 <div class="diff-body">
                   <h3 class="diff-title">{{ diff.title }}</h3>
                   <p class="diff-text">{{ diff.description }}</p>
@@ -499,27 +508,27 @@ export class LaComunidadComponent {
 
   diferenciadores = [
     {
-      icon: '🏡',
+      svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
       title: 'No son un fraccionamiento',
       description: 'Sin lógica comercial de especulación; un proyecto centrado en la vida y el habitar consciente.'
     },
     {
-      icon: '🌳',
+      svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3"/><path d="M8 19h8"/><path d="M12 2a7 7 0 0 0-7 7c0 3.87 3.13 7 7 7s7-3.13 7-7a7 7 0 0 0-7-7z"/></svg>`,
       title: 'Viven sin bardas',
       description: 'Espacios fluidos sin muros divisorios opresivos, integrando los jardines y veredas comunes.'
     },
     {
-      icon: '💧',
+      svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>`,
       title: 'Pozo comunitario compartido',
       description: 'Gestión colectiva responsable del agua potable y sistemas de recolección pluvial.'
     },
     {
-      icon: '🙌',
+      svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
       title: 'Participación activa',
       description: 'Decisiones compartidas y colaboración directa en el mantenimiento y desarrollo del entorno.'
     },
     {
-      icon: '🌿',
+      svgIcon: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`,
       title: 'Regeneración del entorno',
       description: 'Restauración continua de 150+ hectáreas destinadas a conservación y cultivos limpios.'
     }

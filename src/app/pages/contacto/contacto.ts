@@ -1,9 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-contacto',
   standalone: true,
   imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
       <!-- Header -->
@@ -19,16 +20,20 @@ import { Component, signal } from '@angular/core';
       <section class="intenciones-section">
         <div class="intenciones-grid">
           <button (click)="selectReason('Agenda una visita')" [class.active]="selectedReason() === 'Agenda una visita'" class="intencion-btn">
-            📅 Agenda una Visita
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Agenda una Visita
           </button>
           <button (click)="selectReason('Solicita información')" [class.active]="selectedReason() === 'Solicita información'" class="intencion-btn">
-            ℹ️ Solicita Información
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Solicita Información
           </button>
           <button (click)="selectReason('Únete a la Red')" [class.active]="selectedReason() === 'Únete a la Red'" class="intencion-btn">
-            🌐 Únete a la Red
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            Únete a la Red
           </button>
           <button (click)="selectReason('Conoce La Vista')" [class.active]="selectedReason() === 'Conoce La Vista'" class="intencion-btn">
-            🏡 Conoce La Vista
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Conoce La Vista
           </button>
         </div>
       </section>
@@ -44,7 +49,8 @@ import { Component, signal } from '@angular/core';
 
           @if (isSubmitted()) {
             <div class="success-banner">
-              🎉 <strong>¡Mensaje Enviado con Éxito!</strong>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -3px; margin-right: 6px;"><polyline points="20 6 9 17 4 12"/></svg>
+              <strong>¡Mensaje Enviado con Éxito!</strong>
               <p>Gracias por contactar a la Comunidad Tapalehui. Un integrante de nuestro equipo te responderá en breve a tu correo o teléfono.</p>
               <button (click)="resetForm()" class="btn-reset">Enviar otro mensaje</button>
             </div>
@@ -93,14 +99,20 @@ import { Component, signal } from '@angular/core';
         <div class="info-sidebar">
           <!-- Tarjeta de Ubicación -->
           <div class="info-card">
-            <h3>📍 Ubicación & Visitas</h3>
+            <h3>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -3px; margin-right: 6px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ubicación & Visitas
+            </h3>
             <p>Comunidad Tapalehui<br/>Estado de Morelos, México.</p>
             <p class="sub-text">Visitas guiadas únicamente con previa cita confirmada.</p>
           </div>
 
           <!-- Redes Sociales Directas -->
           <div class="info-card">
-            <h3>📲 Redes Sociales & Contacto Directo</h3>
+            <h3>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -3px; margin-right: 6px;"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              Redes Sociales & Contacto Directo
+            </h3>
             <div class="contact-links-list">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="contact-link-item insta">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
@@ -110,14 +122,20 @@ import { Component, signal } from '@angular/core';
                 <span>Síguenos en Instagram (&#64;comunidad_tapalehui)</span>
               </a>
               <div class="contact-link-item">
-                <span>✉️ contacto&#64;tapalehui.org</span>
+                <span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  contacto&#64;tapalehui.org
+                </span>
               </div>
             </div>
           </div>
 
           <!-- Mapa Interactivo Embed -->
           <div class="info-card map-card">
-            <h3>🗺️ Ubicación Geográfica</h3>
+            <h3>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -3px; margin-right: 6px;"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              Ubicación Geográfica
+            </h3>
             <div class="map-container">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120950.4851234567!2d-99.23!3d18.92!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDU1JzEyLjAiTiA5OcKwMTMnNDggMCJX!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx"

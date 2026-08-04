@@ -9,12 +9,14 @@ import {
   SimpleChanges,
   inject,
   signal,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-count-up',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `{{ displayValue() }}`,
 })
 export class CountUpComponent implements OnInit, OnChanges, OnDestroy {

@@ -45,41 +45,47 @@
 body,
 body.dark-theme {
   /* Backgrounds */
-  --bg-main:      #161A16;
-  --bg-secondary: #202520;
-  --bg-surface:   #2B312B;
-  --header-bg:    rgba(22,26,22,0.96);
-  --footer-bg:    #111511;
-  --card-bg:      #2B312B;
-  --card-bg-hover:#343B34;
+  --bg-main:      #121612;
+  --bg-secondary: #1C221C;
+  --bg-surface:   #252E25;
+  --header-bg:    rgba(18, 22, 18, 0.94);
+  --footer-bg:    #0D110D;
+  --card-bg:      #222A22;
+  --card-bg-hover:#2C362C;
 
   /* Borders */
-  --border-color:     rgba(255,255,255,0.10);
-  --border-highlight: rgba(160,183,107,0.40);
+  --border-color:           rgba(255, 255, 255, 0.12);
+  --border-highlight:       rgba(160, 183, 107, 0.45);
+  --border-color-highlight: rgba(160, 183, 107, 0.45);
 
   /* Text */
-  --text-main:  #F8F7F2;
-  --text-muted: #497541;
+  --text-main:  #F8F9F5;
+  --text-muted: #A4B8A0;
 
   /* Brand */
-  --brand:          #A0B76B;
-  --brand-dark:     #497541;
-  --brand-darker:   #295C2B;
-  --brand-gradient: linear-gradient(135deg,#497541 0%,#295C2B 100%);
+  --brand:                #A0B76B;
+  --brand-dark:           #497541;
+  --brand-darker:         #295C2B;
+  --brand-gradient:       linear-gradient(135deg, #497541 0%, #295C2B 100%);
+  --color-brand-primary:  #A0B76B;
 
   /* Terracotta */
-  --terra:      #D88A5E;
-  --terra-bg:   rgba(216,138,94,.18);
+  --terra:                #E08E60;
+  --terra-bg:             rgba(224, 142, 96, 0.18);
+  --color-terracotta:     #E08E60;
+  --color-terracotta-bg:  rgba(224, 142, 96, 0.18);
 
   /* Interactive elements */
-  --btn-brand-bg:   #497541;
-  --btn-brand-text: #FFFFFF;
-  --btn-terra-bg:   #D88A5E;
-  --btn-terra-text: #FFFFFF;
-  --input-bg:       #202520;
-  --input-border:   rgba(255,255,255,.18);
-  --input-text:     #F8F7F2;
-  --logo-color:     #A0B76B;
+  --btn-brand-bg:       #355C37;
+  --btn-brand-text:     #FFFFFF;
+  --btn-terra-bg:       #E08E60;
+  --btn-terra-text:     #FFFFFF;
+  --btn-terracotta-bg:   #E08E60;
+  --btn-terracotta-text: #FFFFFF;
+  --input-bg:           #1C221C;
+  --input-border:       rgba(255, 255, 255, 0.18);
+  --input-text:         #F8F9F5;
+  --logo-color:         #A0B76B;
 
   color-scheme: dark;
 }
@@ -89,43 +95,64 @@ body.dark-theme {
    -------------------------------------------------------------------------- */
 body.light-theme {
   /* Backgrounds */
-  --bg-main:      #FAF9F6;
-  --bg-secondary: #F2EFEC;
+  --bg-main:      #FAF9F5;
+  --bg-secondary: #F3F1EC;
   --bg-surface:   #FFFFFF;
-  --header-bg:    rgba(250,249,246,0.96);
-  --footer-bg:    #1C241C;
+  --header-bg:    rgba(250, 249, 245, 0.94);
+  --footer-bg:    #182218;
   --card-bg:      #FFFFFF;
-  --card-bg-hover:#F0F4EE;
+  --card-bg-hover:#F2F6F1;
 
   /* Borders */
-  --border-color:     rgba(0,0,0,.10);
-  --border-highlight: rgba(41,92,43,.30);
+  --border-color:           rgba(0, 0, 0, 0.09);
+  --border-highlight:       rgba(41, 92, 43, 0.35);
+  --border-color-highlight: rgba(41, 92, 43, 0.35);
 
   /* Text */
-  --text-main:  #1F1F1F;
-  --text-muted: #4A5568;
+  --text-main:  #1A241B;
+  --text-muted: #4E5F50;
 
   /* Brand */
-  --brand:          #295C2B;
-  --brand-dark:     #1C421E;
-  --brand-darker:   #163318;
-  --brand-gradient: linear-gradient(135deg,#295C2B 0%,#1C421E 100%);
+  --brand:                #295C2B;
+  --brand-dark:           #1C421E;
+  --brand-darker:         #163318;
+  --brand-gradient:       linear-gradient(135deg, #295C2B 0%, #1C421E 100%);
+  --color-brand-primary:  #295C2B;
 
   /* Terracotta */
-  --terra:    #C67C52;
-  --terra-bg: rgba(198,124,82,.10);
+  --terra:                #C67C52;
+  --terra-bg:             rgba(198, 124, 82, 0.12);
+  --color-terracotta:     #C67C52;
+  --color-terracotta-bg:  rgba(198, 124, 82, 0.12);
 
   /* Interactive elements */
-  --btn-brand-bg:   #295C2B;
-  --btn-brand-text: #FFFFFF;
-  --btn-terra-bg:   #C67C52;
-  --btn-terra-text: #FFFFFF;
-  --input-bg:       #FFFFFF;
-  --input-border:   rgba(0,0,0,.18);
-  --input-text:     #1F1F1F;
-  --logo-color:     #295C2B;
+  --btn-brand-bg:       #295C2B;
+  --btn-brand-text:     #FFFFFF;
+  --btn-terra-bg:       #C67C52;
+  --btn-terra-text:     #FFFFFF;
+  --btn-terracotta-bg:   #C67C52;
+  --btn-terracotta-text: #FFFFFF;
+  --input-bg:           #FFFFFF;
+  --input-border:       rgba(0, 0, 0, 0.16);
+  --input-text:         #1A241B;
+  --logo-color:         #295C2B;
 
   color-scheme: light;
+}
+
+/* Helper styles for SVG icons */
+.svg-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+.svg-icon-stroke {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
 }
 
 /* --------------------------------------------------------------------------
