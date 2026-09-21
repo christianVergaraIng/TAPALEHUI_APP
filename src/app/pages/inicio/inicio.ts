@@ -6,7 +6,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [RouterLink, CountUpComponent],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
@@ -26,14 +26,17 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             Compartir el futuro.
           </h1>
           <p class="hero-subtitle">
-            Un ecosistema habitacional e investigativo pionero desde 1985, combinando arquitectura en armonía, agricultura biológica e inclusión social en México.
+            Personas y naturaleza desde 1985, combinamos arquitectura entre huertas, agricultura regenerativa e inclusión social en el municipio indígena de Xoxocotla.
           </p>
 
+           <!--
           <div class="hero-actions">
             <a routerLink="/vive-en-tapalehui" class="btn-primary">Conoce La Vista</a>
             <a routerLink="/participa" class="btn-terracotta">Únete a la Red</a>
           </div>
+            -->
         </div>
+      
 
         <!-- Video Julio Box -->
         <div class="hero-video-box">
@@ -48,7 +51,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               </video>
             } @else {
               <div class="video-poster" (click)="playVideo()">
-                <img src="assets/image2.jpeg" alt="Vista Tapalehui" class="poster-img" loading="eager" decoding="async" />
+                <img src="assets/Tapalehui_VideoPlayer.jpg" alt="Vista Tapalehui" class="poster-img" loading="eager" decoding="async" />
                 <div class="video-overlay">
                   <div class="play-button">
                     <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
@@ -66,7 +69,8 @@ import { CountUpComponent } from '../../components/count-up/count-up';
         </div>
       </section>
 
-      <!-- Sección de Pilares (6 Principios) -->
+      <!-- Sección de Pilares (6 Principios) - Comentada a petición -->
+      <!--
       <section class="pilares-section">
         <div class="section-header text-center">
           <span class="section-subtitle">NUESTROS FUNDAMENTOS</span>
@@ -88,8 +92,9 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           }
         </div>
       </section>
+      -->
 
-      <!-- Ecosistema de Proyectos (6 Proyectos Principales) -->
+      <!-- Ecosistema de Proyectos (3 Proyectos Principales) -->
       <section class="proyectos-section">
         <div class="section-header">
           <span class="section-subtitle">IMPACTO & TERRITORIO</span>
@@ -110,13 +115,16 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                 <h3 class="proyecto-title">{{ proj.title }}</h3>
                 <p class="proyecto-desc">{{ proj.description }}</p>
                 <div class="proyecto-footer">
+
                   <span class="proyecto-stat"> {{ proj.stat}}</span>
+                    <!--
                   <a [routerLink]="proj.link" class="proyecto-link">
                     Explorar
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                   </a>
+                  -->
                 </div>
               </div>
             </div>
@@ -124,7 +132,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
         </div>
       </section>
 
-      <!-- Sección Tres Maneras de Formar Parte (CTA) -->
+      <!-- Sección Tres Maneras de Formar Parte (CTA)
       <section class="cta-section">
         <div class="cta-banner">
           <div class="cta-header text-center">
@@ -136,7 +144,6 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           </div>
 
           <div class="cta-grid">
-            <!-- 1) Vive -->
             <div class="cta-card">
               <div class="cta-number"><app-count-up end="01"></app-count-up></div>
               <h3 class="cta-card-title">VIVE</h3>
@@ -146,7 +153,6 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               <a routerLink="/vive-en-tapalehui" class="btn-meet-view">Conoce La Vista &rarr;</a>
             </div>
 
-            <!-- 2) Participa -->
             <div class="cta-card highlight">
               <div class="cta-number"><app-count-up end="02"></app-count-up></div>
               <h3 class="cta-card-title">PARTICIPA</h3>
@@ -156,7 +162,6 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               <a routerLink="/participa" class="btn-join-main">Únete a la Red &rarr;</a>
             </div>
 
-            <!-- 3) Colabora -->
             <div class="cta-card">
               <div class="cta-number"><app-count-up end="03"></app-count-up></div>
               <h3 class="cta-card-title">COLABORA</h3>
@@ -168,6 +173,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           </div>
         </div>
       </section>
+      -->
     </div>
   `,
   styles: [`
@@ -747,32 +753,33 @@ export class InicioComponent {
   proyectos = [
     {
       id: 'la-vista',
-      title: 'La Vista',
-      tag: 'Residencial',
-      image: 'assets/image2.jpeg',
-      description: 'Desarrollo habitacional sostenible con 60 Casas-Huerta integradas al entorno natural.',
-      stat: '60 Casas-Huerta',
+      title: 'Centro de Investigación Comunitaria',
+      tag: 'Centro de Investigación Comunitaria',
+      image: 'assets/CentroInvestigacion.png',
+      description: '',
+      stat: '',
       link: '/vive-en-tapalehui'
     },
     {
       id: 'redtapalehui',
-      title: 'redtapalehui',
-      tag: 'Red Global',
-      image: 'assets/image3.jpeg',
-      description: 'Red comunitaria de talentos, profesionales y colaboradores locales e internacionales.',
-      stat: 'Red Abierta',
+      title: 'Parque del Sapo',
+      tag: 'Parque del Sapo',
+      image: 'assets/ParqueSapo.jpg',
+      description: '',
+      stat: '',
       link: '/participa'
     },
     {
       id: 'centro-investigacion',
-      title: 'Centro de Investigación',
-      tag: 'Academia & Ciencia',
-      image: 'assets/image4.jpeg',
-      description: 'Espacio dedicado al estudio de tecnologías apropiadas, bioconstrucción y ecología.',
-      stat: 'Investigación Comunitaria',
+      title: 'Granja Tehuixtlera',
+      tag: 'Granja Tehuixtlera',
+      image: 'assets/Granja Tehuixtlera.png',
+      description: '',
+      stat: '',
       link: '/proyectos'
-    },
-    {
+    }
+    /*
+    ,{
       id: 'parque-sapo',
       title: 'Parque del Sapo',
       tag: 'Ecoturismo',
@@ -799,5 +806,6 @@ export class InicioComponent {
       stat: '80 Campesinos',
       link: '/proyectos'
     }
+    */
   ];
 }

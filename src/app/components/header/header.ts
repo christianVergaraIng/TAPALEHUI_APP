@@ -22,16 +22,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           </div>
         </a>
 
-        <!-- Desktop Navigation Menu (8 buttons) -->
+        <!-- Desktop Navigation Menu -->
         <nav class="desktop-nav">
           <a routerLink="/inicio" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-btn">Inicio</a>
-          <a routerLink="/la-comunidad" routerLinkActive="active" class="nav-btn">La Comunidad</a>
-          <a routerLink="/vive-en-tapalehui" routerLinkActive="active" class="nav-btn">Vive en Tapalehui</a>
-          <a routerLink="/participa" routerLinkActive="active" class="nav-btn">Participa</a>
+          <a routerLink="/la-comunidad" routerLinkActive="active" class="nav-btn">Redtapalehui</a>
+          <!-- <a routerLink="/vive-en-tapalehui" routerLinkActive="active" class="nav-btn">Vive en Tapalehui</a> -->
+          <!-- <a routerLink="/participa" routerLinkActive="active" class="nav-btn">Participa</a> -->
           <a routerLink="/proyectos" routerLinkActive="active" class="nav-btn">Proyectos</a>
           <a routerLink="/historias" routerLinkActive="active" class="nav-btn">Historias</a>
-          <a routerLink="/noticias" routerLinkActive="active" class="nav-btn">Noticias</a>
-          <a routerLink="/contacto" routerLinkActive="active" class="nav-btn nav-btn-highlight">Contacto</a>
+          <!-- <a routerLink="/noticias" routerLinkActive="active" class="nav-btn">Noticias</a> -->
+          <!-- <a routerLink="/contacto" routerLinkActive="active" class="nav-btn nav-btn-highlight">Contacto</a> -->
         </nav>
 
         <!-- Right Utilities -->
@@ -66,13 +66,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         <div class="mobile-nav-drawer">
           <nav class="mobile-nav-list">
             <a routerLink="/inicio" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Inicio</a>
-            <a routerLink="/la-comunidad" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">La Comunidad</a>
-            <a routerLink="/vive-en-tapalehui" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Vive en Tapalehui</a>
-            <a routerLink="/participa" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Participa</a>
+            <a routerLink="/la-comunidad" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Redtapalehui</a>
+            <!-- <a routerLink="/vive-en-tapalehui" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Vive en Tapalehui</a> -->
+            <!-- <a routerLink="/participa" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Participa</a> -->
             <a routerLink="/proyectos" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Proyectos</a>
             <a routerLink="/historias" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Historias</a>
-            <a routerLink="/noticias" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Noticias</a>
-            <a routerLink="/contacto" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item highlight">Contacto</a>
+            <!-- <a routerLink="/noticias" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Noticias</a> -->
+            <!-- <a routerLink="/contacto" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item highlight">Contacto</a> -->
           </nav>
         </div>
       }
@@ -94,6 +94,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     }
 
     .header-container {
+      position: relative;
       max-width: 1280px;
       margin: 0 auto;
       padding: 0.75rem 1.5rem;
@@ -157,6 +158,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     }
 
     .desktop-nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       align-items: center;
       gap: 0.25rem;
@@ -184,10 +188,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     }
 
     .nav-btn.active {
-      color:       var(--text-main);
-      background:   var(--brand);
-      font-weight:  800;
-      box-shadow:   0 4px 14px rgba(41, 92, 43, 0.35);
+      color:       #FFFFFF !important;
+      background:  var(--brand);
+      font-weight: 800;
+      box-shadow:  0 4px 14px rgba(41, 92, 43, 0.35);
       border-radius: 20px;
     }
 
@@ -195,6 +199,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       background:   #497541;
       color:        #FFFFFF !important;
       box-shadow:   0 4px 16px rgba(160, 183, 107, 0.40);
+    }
+
+    :host-context(body.light-theme) .nav-btn.active {
+      background:   #295C2B;
+      color:        #FFFFFF !important;
+      box-shadow:   0 4px 14px rgba(41, 92, 43, 0.35);
     }
 
     /* .nav-btn-highlight is styled globally in app.css */
@@ -256,6 +266,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       text-decoration: none;
       font-weight: 600;
       transition: background 0.2s;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .mobile-nav-item.active {
@@ -268,6 +279,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     :host-context(body.dark-theme) .mobile-nav-item.active {
       background:  #497541;
       color:       #FFFFFF !important;
+    }
+
+    :host-context(body.light-theme) .mobile-nav-item.active {
+      background:  #295C2B;
+      color:       #FFFFFF !important;
+      box-shadow:  0 4px 12px rgba(41, 92, 43, 0.25);
     }
 
     .mobile-nav-item.highlight {

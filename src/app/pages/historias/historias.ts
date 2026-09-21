@@ -32,7 +32,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               </iframe>
             } @else {
               <div class="video-cover" (click)="loadVideo('https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1')">
-                <img src="assets/image4.jpeg" alt="Historia de Vida Tapalehui" class="cover-img" />
+                <img src="assets/Tapalehui_VideoPlayer.jpg" alt="Historia de Vida Tapalehui" class="cover-img" />
                 <div class="cover-overlay">
                   <div class="play-btn-large">▶</div>
                   <span class="cover-tag">VIDEO DESTACADO</span>
