@@ -31,7 +31,10 @@
   --gradient-primary: linear-gradient(135deg, var(--color-brand-light) 0%, var(--color-brand-primary) 100%);
   --gradient-secondary: linear-gradient(135deg, var(--color-brand-light) 0%, #F8F7F2 100%);
   --gradient-accent: linear-gradient(135deg, var(--color-brand-primary) 0%, #202520 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(43, 49, 43, 0.4) 0%, rgba(43, 49, 43, 0.1) 100%);
+  /* Scrollbar variables */
+  --scrollbar-track: var(--color-bg-deep);
+  --scrollbar-thumb: rgba(160, 183, 107, 0.55);
+  --scrollbar-thumb-hover: rgba(160, 183, 107, 0.85);
 }
 
 /* Light Theme Variables Overrides */
@@ -58,6 +61,11 @@ body.light-theme {
   --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
   --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
   --glass-blur: blur(24px);
+
+  /* Scrollbar variables in light mode - Solid dark green */
+  --scrollbar-track: var(--color-bg-deep);
+  --scrollbar-thumb: #1C421E;
+  --scrollbar-thumb-hover: #0F2610;
 }
 
 /* Reset & Base Styles */
@@ -81,36 +89,42 @@ html, body {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Smooth Scrolling */
+/* Smooth Scrolling & Standard Firefox Scrollbar */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
-/* Custom Premium Scrollbar */
+/* Custom WebKit Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-deep);
+  background: var(--scrollbar-track);
   transition: background-color 0.4s ease;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-body.light-theme ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
+  background: var(--scrollbar-thumb);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--scrollbar-thumb-hover);
 }
 
-body.light-theme ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
+body.light-theme ::-webkit-scrollbar-thumb,
+body.light-theme::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+}
+
+body.light-theme ::-webkit-scrollbar-thumb:hover,
+body.light-theme::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Global Typography */

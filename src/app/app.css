@@ -256,14 +256,27 @@ button {
 /* --------------------------------------------------------------------------
    SCROLLBAR
    -------------------------------------------------------------------------- */
-::-webkit-scrollbar       { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
 ::-webkit-scrollbar-thumb {
-  background:    var(--brand);
-  border-radius: 4px;
+  background: var(--brand);
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--brand-dark);
+}
+body.light-theme ::-webkit-scrollbar-thumb,
+body.light-theme::-webkit-scrollbar-thumb {
+  background: #1C421E;
+}
+body.light-theme ::-webkit-scrollbar-thumb:hover,
+body.light-theme::-webkit-scrollbar-thumb:hover {
+  background: #0F2610;
 }
 
 /* ==========================================================================

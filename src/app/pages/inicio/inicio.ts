@@ -87,7 +87,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       </section>
       -->
 
-      <!-- Ecosistema de Proyectos (3 Proyectos Principales) -->
+      <!-- Ecosistema de Proyectos (3 Proyectos Principales) 
       <section class="proyectos-section">
         <div class="section-header">
           <span class="section-subtitle">IMPACTO & TERRITORIO</span>
@@ -110,20 +110,19 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                 <div class="proyecto-footer">
 
                   <span class="proyecto-stat"> {{ proj.stat}}</span>
-                    <!--
                   <a [routerLink]="proj.link" class="proyecto-link">
                     Explorar
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                   </a>
-                  -->
+                  
                 </div>
               </div>
             </div>
           }
         </div>
-      </section>
+      </section> -->
 
       <!-- Sección Tres Maneras de Formar Parte (CTA)
       <section class="cta-section">
