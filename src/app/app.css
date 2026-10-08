@@ -48,6 +48,7 @@ body.dark-theme {
   --bg-main:      #121612;
   --bg-secondary: #1C221C;
   --bg-surface:   #252E25;
+  --bg-point-badge: white;
   --header-bg:    rgba(18, 22, 18, 0.94);
   --footer-bg:    #0D110D;
   --card-bg:      #222A22;

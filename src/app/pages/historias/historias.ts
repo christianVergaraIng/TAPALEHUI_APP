@@ -1,10 +1,9 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
-import { CountUpComponent } from '../../components/count-up/count-up';
 
 @Component({
   selector: 'app-historias',
   standalone: true,
-  imports: [CountUpComponent],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
@@ -17,7 +16,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
         </p>
       </section>
 
-      <!-- Video Destacado de Historia -->
+      <!-- Video Destacado de Historia
       <section class="featured-story-video">
         <div class="story-video-card">
           <div class="video-preview-box">
@@ -44,7 +43,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
         </div>
       </section>
 
-      <!-- Tarjetas de Testimonios e Historias Escritas -->
+      <!-- Tarjetas de Testimonios e Historias Escritas
       <section class="historias-grid-section">
         <div class="historias-grid">
           @for (story of historias; track story.id) {
@@ -81,6 +80,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
         </div>
       </section>
     </div>
+     -->
   `,
   styles: [`
     .page-container {

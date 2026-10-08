@@ -12,7 +12,7 @@ import { FooterComponent } from './components/footer/footer';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App implements OnInit {
-  protected readonly isDarkMode = signal(true);
+  protected readonly isDarkMode = signal(false);
 
   ngOnInit(): void {
     // Apply theme synchronously before first paint to avoid flash

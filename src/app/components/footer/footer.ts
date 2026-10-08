@@ -33,10 +33,11 @@ import { RouterLink } from '@angular/router';
             <h4 class="footer-title">Navegación</h4>
             <ul class="footer-links">
               <li><a routerLink="/inicio">Inicio</a></li>
-              <li><a routerLink="/la-comunidad">La Comunidad</a></li>
+              <li><a routerLink="/la-comunidad">Retapalehui</a></li>
+              <li><a routerLink="/participa">Investigación</a></li>
               <li><a routerLink="/vive-en-tapalehui">Vive en Tapalehui</a></li>
-              <li><a routerLink="/participa">Participa</a></li>
               <li><a routerLink="/proyectos">Proyectos</a></li>
+              <li><a routerLink="/historias">Historias</a></li>
             </ul>
           </div>
 
@@ -44,11 +45,11 @@ import { RouterLink } from '@angular/router';
           <div class="footer-col">
             <h4 class="footer-title">Explora</h4>
             <ul class="footer-links">
-              <li><a routerLink="/historias">Historias</a></li>
-              <li><a routerLink="/noticias">Noticias & Instagram</a></li>
-              <li><a routerLink="/contacto">Contacto & Visitas</a></li>
-              <li><a routerLink="/vive-en-tapalehui">Casas-Huerta (La Vista)</a></li>
-              <li><a routerLink="/participa">Red Tapalehui</a></li>
+              <li><a routerLink="/proyectos">La Vista & Casas-Huerta</a></li>
+              <li><a routerLink="/la-comunidad">Ecosistema Comunitaria</a></li>
+              <li><a routerLink="/historias">Historias de Vida</a></li>
+              <!-- <li><a routerLink="/noticias">Noticias</a></li> -->
+              <!-- <li><a routerLink="/contacto">Contacto & Visitas</a></li> -->
             </ul>
           </div>
 

@@ -10,6 +10,7 @@ export const routes: Routes = [
     path: 'la-comunidad',
     loadComponent: () => import('./pages/la-comunidad/la-comunidad').then((m) => m.LaComunidadComponent)
   },
+  { path: 'retapalehui', redirectTo: 'la-comunidad', pathMatch: 'full' },
   {
     path: 'vive-en-tapalehui',
     loadComponent: () => import('./pages/vive/vive').then((m) => m.ViveComponent)
@@ -18,6 +19,7 @@ export const routes: Routes = [
     path: 'participa',
     loadComponent: () => import('./pages/participa/participa').then((m) => m.ParticipaComponent)
   },
+  { path: 'investigacion', redirectTo: 'participa', pathMatch: 'full' },
   {
     path: 'proyectos',
     loadComponent: () => import('./pages/proyectos/proyectos').then((m) => m.ProyectosComponent)

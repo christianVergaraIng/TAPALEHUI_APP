@@ -1,23 +1,68 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { CountUpComponent } from '../../components/count-up/count-up';
 
 @Component({
   selector: 'app-proyectos',
   standalone: true,
-  imports: [CountUpComponent],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
       <!-- Header -->
       <section class="page-header text-center">
-        <h1 class="page-title">Proyectos & Impacto Territorial</h1>
-        <p class="page-subtitle">
-          Iniciativas dedicadas al desarrollo comunitario, la restauración biológica y el ecoturismo responsable.
-        </p>
+        <h1 class="page-title">Ecoturismo y Agricultura Regenerativa</h1>
       </section>
 
-      <!-- Grid Destacado de Proyectos -->
+      <!-- Sección Ecoturismo y Agricultura Regenerativa (Grid 2 columnas) -->
+      <section class="ecoturismo-grid-section fade-in">
+        <div class="ecoturismo-grid">
+          <!-- Columna Izquierda: Parque del Sapo -->
+          <div class="ecoturismo-card">
+            <div class="ecoturismo-img-wrapper">
+              <img src="assets/ParqueSapo.jpg" alt="Parque del Sapo" class="ecoturismo-img" loading="lazy" decoding="async" />
+            </div>
+            <h3 class="ecoturismo-label">Parque del Sapo</h3>
+          </div>
+
+          <!-- Columna Derecha: Granja Tehuixtlera -->
+          <div class="ecoturismo-card">
+            <div class="ecoturismo-img-wrapper">
+              <img src="assets/Granja Tehuixtlera.png" alt="Granja Tehuixtlera" class="ecoturismo-img" loading="lazy" decoding="async" />
+            </div>
+            <h3 class="ecoturismo-label">Granja Tehuixtlera</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Detalles: Parque del Sapo & Granja Tehuixtlera (Texto Izq, Imagen Der) -->
+      <section class="ecoturismo-details-section fade-in">
+        <div class="ecoturismo-details-grid">
+          <!-- Columna Izquierda: Textos explicativos -->
+          <div class="ecoturismo-text-col">
+            <div class="info-block">
+              <h2 class="block-title">Parque del Sapo</h2>
+              <p class="block-text">
+                Ya nos organizamos 12 propietarios con una superficie de 50 hectáreas para un recorrido de 2 km. Seguimos el modelo del Parque Barranca Chapultepec que tiene 1.5 km de recorrido
+              </p>
+            </div>
+
+            <div class="info-block">
+              <h2 class="block-title">Granja Tehuixtlera</h2>
+              <p class="block-text">
+                Seguimos el modelo de la empresa SIESA de Guatemala que tiene 2,500 socios de menos de ½ 2 ha y que exporta desde hace 40 años a Reino Unido y USA verduras finas
+              </p>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Imagen Ilustrativa -->
+          <div class="ecoturismo-img-col">
+            <div class="details-img-wrapper">
+              <img src="assets/ComunidadTapalehui.png" alt="Comunidad Tapalehui" class="details-img" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid Destacado de Proyectos (Comentado a petición)
       <section class="proyectos-detail-grid">
         @for (proj of proyectosDetalle; track proj.id) {
           <div class="proj-detail-card" [class.featured]="proj.featured">
@@ -55,9 +100,10 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           </div>
         }
       </section>
+      -->
 
-      <!-- Sección Residencial & Hábitat (Integrado desde Vive) -->
-      <!-- Sección Residencial & Hábitat (Integrado desde Vive) -->
+      <!-- Sección Residencial & Hábitat (Integrado desde Vive)
+      Sección Residencial & Hábitat (Integrado desde Vive) 
       <section class="section-la-vista">
         <div class="section-header text-center">
           <div class="header-badge">PROYECTO RESIDENCIAL & HÁBITAT</div>
@@ -66,7 +112,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             60 viviendas ecológicas diseñadas en armonía con el paisaje, huertos bio-intensivos y autonomía hídrica.
           </p>
 
-          <!-- Navigation Tabs - Comentadas a petición del usuario
+          Navigation Tabs - Comentadas a petición del usuario
           <div class="tab-navigation">
             <button (click)="setActiveTab('masterplan')" [class.active]="activeTab() === 'masterplan'" class="tab-btn">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;">
@@ -96,7 +142,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           -->
         </div>
 
-        <!-- MASTER PLAN DE LA VISTA -->
+        <!-- MASTER PLAN DE LA VISTA 
         <div class="tab-content fade-in">
           <div class="masterplan-card">
             <div class="mp-header">
@@ -165,12 +211,12 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           </div>
         </div>
 
-        <!-- Secciones adicionales comentadas a petición
+        Secciones adicionales comentadas a petición
         @if (activeTab() === 'prototipos') { ... }
         @if (activeTab() === 'multimedia') { ... }
         @if (activeTab() === 'operativa') { ... }
-        -->
       </section>
+      -->
 
       <!-- Banner de Metodología de Impacto 
       <section class="impacto-banner">
@@ -195,8 +241,9 @@ import { CountUpComponent } from '../../components/count-up/count-up';
           </div>
         </div>
       </section>
-      -->
+      
     </div>
+    -->
   `,
   styles: [`
     .page-container {
@@ -235,6 +282,132 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       color: var(--text-muted);
       max-width: 700px;
       margin: 0 auto;
+    }
+
+    /* Ecoturismo y Agricultura Regenerativa Grid */
+    .ecoturismo-grid-section {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .ecoturismo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .ecoturismo-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .ecoturismo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .ecoturismo-img-wrapper {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+    }
+
+    .ecoturismo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .ecoturismo-card:hover .ecoturismo-img {
+      transform: scale(1.02);
+    }
+
+    .ecoturismo-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      text-align: center;
+      margin: 0;
+    }
+
+    /* Ecoturismo Details Section (Texto Izquierda, Imagen Derecha) */
+    .ecoturismo-details-section {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .ecoturismo-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .ecoturismo-details-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .ecoturismo-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .block-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    .block-text {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .ecoturismo-img-col {
+      width: 100%;
+    }
+
+    .details-img-wrapper {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+    }
+
+    .details-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
 
     /* Proyectos Detail Grid */

@@ -10,28 +10,26 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     <header class="app-header">
       <div class="header-container">
         <!-- Logo con Icono de Hoja -->
-        <a routerLink="/inicio" class="brand-logo">
+<a routerLink="/inicio" class="brand-logo">
           <div class="logo-box">
             <svg class="logo-icon" viewBox="0 0 512 512" width="26" height="26" fill="currentColor">
               <path d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5h88c8.8 0 16 7.2 16 16s-7.2 16-16 16H288 216s0 0 0 0c-16.6 0-32.7 1.9-48.2 5.4c-25.9 5.9-50 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440v16c0 13.3 10.7 24 24 24s24-10.7 24-24V440c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z"></path>
             </svg>
           </div>
           <div class="brand-text">
+            <span class="brand-name">Comunidad Sustentable</span>
             <span class="brand-name">TAPALEHUI</span>
-            <span class="brand-tagline">Comunidad Sustentable</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Menu -->
         <nav class="desktop-nav">
           <a routerLink="/inicio" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-btn">Inicio</a>
-          <a routerLink="/la-comunidad" routerLinkActive="active" class="nav-btn">Redtapalehui</a>
-          <!-- <a routerLink="/vive-en-tapalehui" routerLinkActive="active" class="nav-btn">Vive en Tapalehui</a> -->
-          <!-- <a routerLink="/participa" routerLinkActive="active" class="nav-btn">Participa</a> -->
+          <a routerLink="/la-comunidad" routerLinkActive="active" class="nav-btn">Retapalehui</a>
+          <a routerLink="/participa" routerLinkActive="active" class="nav-btn">Investigación</a>
+          <a routerLink="/vive-en-tapalehui" routerLinkActive="active" class="nav-btn">Vive en Tapalehui</a>
           <a routerLink="/proyectos" routerLinkActive="active" class="nav-btn">Proyectos</a>
           <a routerLink="/historias" routerLinkActive="active" class="nav-btn">Historias</a>
-          <!-- <a routerLink="/noticias" routerLinkActive="active" class="nav-btn">Noticias</a> -->
-          <!-- <a routerLink="/contacto" routerLinkActive="active" class="nav-btn nav-btn-highlight">Contacto</a> -->
         </nav>
 
         <!-- Right Utilities -->
@@ -66,13 +64,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         <div class="mobile-nav-drawer">
           <nav class="mobile-nav-list">
             <a routerLink="/inicio" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Inicio</a>
-            <a routerLink="/la-comunidad" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Redtapalehui</a>
-            <!-- <a routerLink="/vive-en-tapalehui" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Vive en Tapalehui</a> -->
-            <!-- <a routerLink="/participa" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Participa</a> -->
+            <a routerLink="/la-comunidad" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Retapalehui</a>
+            <a routerLink="/participa" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Investigación</a>
+            <a routerLink="/vive-en-tapalehui" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Vive en Tapalehui</a>
             <a routerLink="/proyectos" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Proyectos</a>
             <a routerLink="/historias" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Historias</a>
-            <!-- <a routerLink="/noticias" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item">Noticias</a> -->
-            <!-- <a routerLink="/contacto" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-nav-item highlight">Contacto</a> -->
           </nav>
         </div>
       }
@@ -143,7 +139,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
     .brand-name {
       font-family:    'Outfit', sans-serif;
-      font-size:      1.2rem;
+      font-size:      0.95rem;
       font-weight:    800;
       letter-spacing: 0.08em;
       color:          var(--brand);

@@ -1,21 +1,16 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { CountUpComponent } from '../../components/count-up/count-up';
 
 @Component({
   selector: 'app-vive',
   standalone: true,
-  imports: [RouterLink, CountUpComponent],
+  imports: [CountUpComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
       <!-- Header -->
       <section class="page-header text-center">
-        <div class="header-badge">PROYECTO RESIDENCIAL</div>
         <h1 class="page-title">La Vista & Casas-Huerta</h1>
-        <p class="page-subtitle">
-          60 viviendas ecológicas diseñadas en armonía con el paisaje, huertos bio-intensivos y autonomía hídrica.
-        </p>
 
         <!-- Navigation Tabs -->
         <div class="tab-navigation">
@@ -37,18 +32,71 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             </svg>
             Galería & Videos
           </button>
+          <!--
           <button (click)="setActiveTab('operativa')" [class.active]="activeTab() === 'operativa'" class="tab-btn">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;">
               <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
             </svg>
             Proceso & FAQ
           </button>
+          -->
         </div>
       </section>
 
       <!-- TAB 1: MASTER PLAN -->
       @if (activeTab() === 'masterplan') {
         <section class="tab-content fade-in">
+          <!-- Showcase Grid La Vista Tapalehui -->
+          <div class="vista-showcase-card">
+            <div class="vista-showcase-grid">
+              <!-- Columna 1: Texto + Vista01.png -->
+              <div class="vista-text-col">
+                <div class="vista-brand-header">
+                  <div class="vista-brand-icon">
+                    <svg viewBox="0 0 36 36" width="36" height="36" fill="none" stroke="#4A6B4B" stroke-width="2.2">
+                      <rect x="4" y="4" width="12" height="12" rx="2"/>
+                      <circle cx="24" cy="10" r="4"/>
+                      <path d="M4 24c0-3.5 2.5-6 6-6s6 2.5 6 6v6H4v-6z"/>
+                      <path d="M24 20c2.5 0 4.5 2 4.5 4.5V30"/>
+                    </svg>
+                  </div>
+                  <div class="vista-brand-title">
+                    <span class="vbrand-top">LA VISTA</span>
+                    <span class="vbrand-bot">TAPALEHUI</span>
+                  </div>
+                </div>
+
+                <p class="vista-p">
+                  Conjunto residencial ubicado en Xoxocotla, Morelos, que busca crear un equilibrio entre la arquitectura y la naturaleza. El proyecto ofrece lotes ideales para construir casas modulares tipo cabaña, pensadas para adaptarse a las necesidades y estilo de vida de cada persona.
+                </p>
+                <p class="vista-p">
+                  Este sistema permite personalizar los espacios y crecer conforme a las posibilidades de cada familia. Se presentan tres prototipos de diferentes dimensiones que reflejan la esencia del desarrollo: flexibilidad, confort y una conexión genuina con el entorno natural.
+                </p>
+
+                <div class="vista-img-wrapper vista01-wrapper">
+                  <img src="assets/Vista01.png" alt="Entorno Natural La Vista" class="vista-img" loading="lazy" decoding="async" />
+                </div>
+              </div>
+
+              <!-- Columna 2: Imagen Principal Vista02.png (más grande) -->
+              <div class="vista-main-img-col">
+                <div class="vista-img-wrapper vista02-wrapper">
+                  <img src="assets/Vista02.png" alt="Terraza Cabaña La Vista" class="vista-img" loading="lazy" decoding="async" />
+                </div>
+              </div>
+
+              <!-- Columna 3: Dos imágenes apiladas (Vista03.png arriba, Vista04.png abajo) -->
+              <div class="vista-stack-col">
+                <div class="vista-img-wrapper vista03-wrapper">
+                  <img src="assets/Vista03.png" alt="Interior Cocina La Vista" class="vista-img" loading="lazy" decoding="async" />
+                </div>
+                <div class="vista-img-wrapper vista04-wrapper">
+                  <img src="assets/Vista04.png" alt="Interior Recámara La Vista" class="vista-img" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="masterplan-card">
             <div class="mp-header">
               <h2>Master Plan Interactivo - La Vista</h2>
@@ -57,41 +105,41 @@ import { CountUpComponent } from '../../components/count-up/count-up';
 
             <div class="mp-visual">
               <div class="map-placeholder">
-                <img src="assets/image2.jpeg" alt="Trazado La Vista Master Plan" class="mp-bg-img" />
+                <img src="assets/LaVista01.jpg" alt="Trazado La Vista Master Plan" class="mp-bg-img" />
                 <div class="mp-overlay-points">
-                  <div class="mp-point" style="top: 30%; left: 25%;" (click)="selectPoint('Pozo Comunitario')">
-                    <span class="point-badge">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-                      Pozo Comunitario
-                    </span>
-                  </div>
-                  <div class="mp-point" style="top: 45%; left: 60%;" (click)="selectPoint('Casas-Huerta Sector A')">
-                    <span class="point-badge">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                      Casas-Huerta (Sector A)
-                    </span>
-                  </div>
-                  <div class="mp-point" style="top: 70%; left: 40%;" (click)="selectPoint('Bio-Huerto Colectivo')">
-                    <span class="point-badge">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/></svg>
-                      Bio-Huerto Colectivo
-                    </span>
-                  </div>
-                  <div class="mp-point" style="top: 20%; left: 75%;" (click)="selectPoint('Casa Club & SUM')">
-                    <span class="point-badge">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><line x1="2" y1="22" x2="22" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7 12 2"/></svg>
-                      Casa Club & SUM
-                    </span>
-                  </div>
+                  @for (pt of masterPlanPoints; track pt.id) {
+                    <div 
+                      class="mp-point" 
+                      [attr.data-dir]="pt.dir"
+                      [style.top]="pt.top" 
+                      [style.left]="pt.left" 
+                      (click)="selectPointInfo(pt)">
+                      <span class="point-dot"></span>
+                      <span class="point-badge">
+                        @if (pt.icon === 'water') {
+                          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                        } @else if (pt.icon === 'home') {
+                          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                        } @else if (pt.icon === 'leaf') {
+                          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/></svg>
+                        } @else if (pt.icon === 'club') {
+                          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="22" x2="22" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7 12 2"/></svg>
+                        } @else {
+                          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+                        }
+                        {{ pt.name }}
+                      </span>
+                    </div>
+                  }
                 </div>
               </div>
             </div>
 
-            @if (selectedPoint()) {
-              <div class="point-info-box">
-                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <strong>Punto Seleccionado:</strong> {{ selectedPoint() }}
-                <p class="point-desc">Área planificada bajo normas de bioconstrucción y respeto topográfico.</p>
+            @if (selectedPointDetail()) {
+              <div class="point-info-box fade-in">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 6px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <strong>Punto Seleccionado:</strong> {{ selectedPointDetail()?.name }}
+                <p class="point-desc">{{ selectedPointDetail()?.description }}</p>
               </div>
             }
 
@@ -120,6 +168,16 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       <!-- TAB 2: PROTOTIPOS -->
       @if (activeTab() === 'prototipos') {
         <section class="tab-content fade-in">
+          <div class="prototipos-showcase-card">
+            <div class="prototipos-img-wrapper">
+              <img src="assets/Prototipos.png" alt="Prototipos La Vista Tapalehui" class="prototipos-showcase-img" loading="lazy" decoding="async" />
+            </div>
+          </div>
+
+          <!--
+          ========================================================================
+          CONTENIDO ANTERIOR COMENTADO A PETICIÓN
+          ========================================================================
           <div class="prototipos-grid">
             @for (proto of prototipos; track proto.id) {
               <div class="proto-card">
@@ -133,18 +191,9 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                   <p class="proto-desc">{{ proto.description }}</p>
                   
                   <div class="proto-specs">
-                    <span>
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M2 4v16"/><path d="M2 8h20v12"/><path d="M22 12v8"/><path d="M18 12V8a2 2 0 0 0-2-2H4"/></svg>
-                      <app-count-up [end]="proto.rooms"></app-count-up> Recámaras
-                    </span>
-                    <span>
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-2.12 0l-.88.88a1.5 1.5 0 0 0 0 2.12L6 9"/><path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3a1 1 0 0 1 1-1z"/></svg>
-                      <app-count-up [end]="proto.baths"></app-count-up> Baños
-                    </span>
-                    <span>
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/></svg>
-                      Huerto <app-count-up [end]="proto.huertoSize"></app-count-up> m²
-                    </span>
+                    <span>Recámaras</span>
+                    <span>Baños</span>
+                    <span>Huerto</span>
                   </div>
 
                   <a routerLink="/contacto" class="btn-select-proto">Solicitar Planos & Cotización &rarr;</a>
@@ -152,10 +201,73 @@ import { CountUpComponent } from '../../components/count-up/count-up';
               </div>
             }
           </div>
+          -->
         </section>
       }
 
-      <!-- TAB 3: MULTIMEDIA -->
+      <!-- TAB 3: MULTIMEDIA (CARRUSEL) -->
+      @if (activeTab() === 'multimedia') {
+        <section class="tab-content fade-in">
+          <div class="carousel-container">
+            <div class="carousel-wrapper">
+              <!-- Slide Display -->
+              <div class="carousel-slide">
+                <img 
+                  [src]="carouselImages[currentSlide()].src" 
+                  [alt]="carouselImages[currentSlide()].title" 
+                  class="carousel-img" 
+                  loading="lazy" 
+                  decoding="async" 
+                />
+                <div class="carousel-caption">
+                  <span>{{ carouselImages[currentSlide()].title }}</span>
+                  <span class="slide-counter">{{ currentSlide() + 1 }} / {{ carouselImages.length }}</span>
+                </div>
+              </div>
+
+              <!-- Navigation Controls -->
+              <button class="carousel-btn prev-btn" (click)="prevSlide()" aria-label="Imagen anterior">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+
+              <button class="carousel-btn next-btn" (click)="nextSlide()" aria-label="Siguiente imagen">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Dots Indicator -->
+            <div class="carousel-indicators">
+              @for (img of carouselImages; track $index) {
+                <button 
+                  class="indicator-dot" 
+                  [class.active]="$index === currentSlide()" 
+                  (click)="goToSlide($index)"
+                  [attr.aria-label]="'Ir a imagen ' + ($index + 1)">
+                </button>
+              }
+            </div>
+
+            <!-- Thumbnails Strip -->
+            <div class="carousel-thumbnails">
+              @for (img of carouselImages; track $index) {
+                <div 
+                  class="thumb-item" 
+                  [class.active]="$index === currentSlide()" 
+                  (click)="goToSlide($index)">
+                  <img [src]="img.src" [alt]="img.title" class="thumb-img" />
+                </div>
+              }
+            </div>
+          </div>
+        </section>
+      } 
+
+
+      <!-- TAB 3: MULTIMEDIA
       @if (activeTab() === 'multimedia') {
         <section class="tab-content fade-in">
           <div class="multimedia-section">
@@ -197,12 +309,12 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             </div>
           </div>
         </section>
-      }
+      } -->
 
-      <!-- TAB 4: INFORMACIÓN OPERATIVA & FAQ -->
+      <!-- TAB 4: INFORMACIÓN OPERATIVA & FAQ
       @if (activeTab() === 'operativa') {
         <section class="tab-content fade-in">
-          <!-- Proceso de Integración -->
+          Proceso de Integración
           <div class="proceso-box">
             <h2 class="sub-heading text-center">Proceso de Integración a La Vista</h2>
             <p class="section-desc text-center">Cuatro pasos para formar parte de la comunidad residencial.</p>
@@ -231,7 +343,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             </div>
           </div>
 
-          <!-- FAQ Accordion -->
+          FAQ Accordion
           <div class="faq-box" style="margin-top: 4rem;">
             <h2 class="sub-heading text-center">Preguntas Frecuentes (FAQ)</h2>
             
@@ -252,7 +364,8 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             </div>
           </div>
         </section>
-      }
+        
+      }-->
     </div>
   `,
   styles: [`
@@ -366,6 +479,133 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* La Vista Tapalehui Showcase Grid */
+    .vista-showcase-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+      margin-bottom: 3rem;
+    }
+
+    .vista-showcase-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.15fr 0.93fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .vista-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    .vista-brand-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .vista-brand-icon {
+      color: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vista-brand-title {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: 0.06em;
+    }
+
+    .vbrand-top {
+      font-size: 1.5rem;
+      color: var(--brand);
+    }
+
+    .vbrand-bot {
+      font-size: 1.4rem;
+      color: var(--brand);
+    }
+
+    .vista-p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-main);
+      margin: 0;
+      text-align: justify;
+    }
+
+    .vista-img-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-highlight);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      background: var(--bg-surface);
+      position: relative;
+    }
+
+    .vista01-wrapper {
+      height: 175px;
+      margin-top: 0.5rem;
+    }
+
+    .vista-main-img-col {
+      display: flex;
+      height: 100%;
+    }
+
+    .vista02-wrapper {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+    }
+
+    .vista-stack-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      height: 100%;
+    }
+
+    .vista03-wrapper, .vista04-wrapper {
+      flex: 1;
+      min-height: 235px;
+    }
+
+    .vista-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .vista-img-wrapper:hover .vista-img {
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 1024px) {
+      .vista-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .vista02-wrapper {
+        min-height: 360px;
+      }
+      .vista03-wrapper, .vista04-wrapper {
+        min-height: 240px;
+      }
+    }
+
     /* Master Plan Tab */
     .masterplan-card {
       background: var(--card-bg);
@@ -396,21 +636,22 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       border-radius: 16px;
       overflow: hidden;
       margin-bottom: 1.5rem;
-      aspect-ratio: 16/9;
       border: 1px solid var(--border-color);
+      background: var(--card-bg);
     }
 
     .map-placeholder {
       position: relative;
       width: 100%;
-      height: 100%;
+      container-type: inline-size;
     }
 
     .mp-bg-img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.7);
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: brightness(0.95);
     }
 
     .mp-overlay-points {
@@ -418,28 +659,68 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       inset: 0;
     }
 
+    /* El punto (0,0) de .mp-point es el anclaje exacto sobre el mapa */
     .mp-point {
       position: absolute;
+      width: 0;
+      height: 0;
       cursor: pointer;
-      transform: translate(-50%, -50%);
     }
 
+    .point-dot {
+      position: absolute;
+      left: -6px;
+      top: -6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #295C2B;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Posición del badge respecto al anclaje */
+    .mp-point[data-dir='top'] .point-badge    { bottom: 14px; left: 0; translate: -50% 0; }
+    .mp-point[data-dir='bottom'] .point-badge { top: 14px; left: 0; translate: -50% 0; }
+    .mp-point[data-dir='left'] .point-badge   { right: 14px; top: 0; translate: 0 -50%; }
+    .mp-point[data-dir='right'] .point-badge  { left: 14px; top: 0; translate: 0 -50%; }
+
+    .mp-point:hover { z-index: 5; }
+
     .point-badge {
-      background: var(--bg-surface);
-      border: 1px solid var(--color-brand-primary);
-      color: var(--text-main);
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s;
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      color: #122814;
+      border: 2px solid #295C2B;
+      padding: 0.5rem 0.95rem;
+      border-radius: 30px;
+      font-size: clamp(0.6rem, 1.6cqw, 0.82rem);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+      white-space: nowrap;
+      transition: scale 0.22s cubic-bezier(0.4, 0, 0.2, 1), background 0.22s, color 0.22s, border-color 0.22s, box-shadow 0.22s;
+    }
+
+    .point-badge svg {
+      color: #295C2B;
+      flex-shrink: 0;
     }
 
     .mp-point:hover .point-badge {
-      transform: scale(1.1);
-      background: var(--color-brand-primary);
-      color: #ffffff;
+      scale: 1.08;
+      background: #295C2B;
+      border-color: #A0B76B;
+      color: #FFFFFF;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 16px rgba(160, 183, 107, 0.5);
+    }
+
+    .mp-point:hover .point-badge svg {
+      color: #FFFFFF;
     }
 
     .point-info-box {
@@ -474,6 +755,31 @@ import { CountUpComponent } from '../../components/count-up/count-up';
     .stat-lbl {
       font-size: 0.85rem;
       color: var(--text-muted);
+    }
+
+    /* Prototipos Showcase Image */
+    .prototipos-showcase-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    }
+
+    .prototipos-img-wrapper {
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border-highlight);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      background: var(--bg-surface);
+    }
+
+    .prototipos-showcase-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
 
     /* Prototipos */
@@ -755,20 +1061,295 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       font-size: 0.92rem;
       line-height: 1.6;
     }
+
+    /* Multimedia Carousel Styles */
+    .carousel-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+      background: #000;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-slide {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem 2rem;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .slide-counter {
+      font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      color: #1a1a1a;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      transition: all 0.22s ease;
+      z-index: 10;
+    }
+
+    :host-context(body.dark-theme) .carousel-btn {
+      background: rgba(30, 30, 30, 0.85);
+      color: #ffffff;
+    }
+
+    .carousel-btn:hover {
+      background: #ffffff;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    :host-context(body.dark-theme) .carousel-btn:hover {
+      background: #333333;
+    }
+
+    .prev-btn { left: 1.25rem; }
+    .next-btn { right: 1.25rem; }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .indicator-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--border-color);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .indicator-dot.active {
+      background: var(--color-brand-primary);
+      width: 32px;
+      border-radius: 12px;
+    }
+
+    .carousel-thumbnails {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .thumb-item {
+      width: 90px;
+      height: 60px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.6;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .thumb-item:hover {
+      opacity: 0.9;
+    }
+
+    .thumb-item.active {
+      border-color: var(--color-brand-primary);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   `]
 })
 export class ViveComponent {
   activeTab = signal<'masterplan' | 'prototipos' | 'multimedia' | 'operativa'>('masterplan');
-  selectedPoint = signal<string | null>(null);
   openFaqId = signal<number | null>(1);
 
   setActiveTab(tab: 'masterplan' | 'prototipos' | 'multimedia' | 'operativa') {
     this.activeTab.set(tab);
   }
 
-  selectPoint(name: string) {
-    this.selectedPoint.set(name);
+  // Multimedia Carousel State
+  currentSlide = signal<number>(0);
+  carouselImages = [
+    { src: 'assets/Multimedia01.jpg', title: 'Vista General del Desarrollo' },
+    { src: 'assets/Investigacion02.jpg', title: 'Diálogos e Investigación Comunitaria' },
+    { src: 'assets/Investigacion03.jpg', title: 'Espacios de Trabajo y Colaboración' },
+    { src: 'assets/ParqueSapo.jpg', title: 'Parque del Sapo' },
+    { src: 'assets/Granja Tehuixtlera.png', title: 'Granja Tehuixtlera' }
+  ];
+
+  nextSlide() {
+    this.currentSlide.update(curr => (curr + 1) % this.carouselImages.length);
   }
+
+  prevSlide() {
+    this.currentSlide.update(curr => (curr - 1 + this.carouselImages.length) % this.carouselImages.length);
+  }
+
+  goToSlide(index: number) {
+    this.currentSlide.set(index);
+  }
+
+  selectedPointDetail = signal<{ name: string; description: string } | null>({
+    name: 'Pozo Comunitario',
+    description: 'Pozo comunitario con autonomía hídrica que distribuye agua limpia a las 60 Casas-Huerta y zonas agrícolas.'
+  });
+
+  selectPointInfo(pt: { name: string; description: string }) {
+    this.selectedPointDetail.set(pt);
+  }
+
+  masterPlanPoints = [
+    {
+      id: 'camino-huamuchil',
+      name: 'Camino del Huamuchil',
+      top: '17.5%',
+      left: '20.6%',
+      dir: 'left',
+      icon: 'road',
+      description: 'Vía principal de acceso al desarrollo que recorre la Sección C y conecta con los huertos nativos de Huamuchil.'
+    },
+    {
+      id: 'cerrada-cerro-sapo',
+      name: 'Cerrada del Cerro del Sapo',
+      top: '14.9%',
+      left: '45.4%',
+      dir: 'top',
+      icon: 'road',
+      description: 'Calle residencial privada en la parte elevada del Sector B, con vistas panorámicas hacia la reserva del Cerro del Sapo.'
+    },
+    {
+      id: 'camino-cerro-sapo',
+      name: 'Camino al Cerro del Sapo',
+      top: '34.1%',
+      left: '26.7%',
+      dir: 'left',
+      icon: 'road',
+      description: 'Sendero ecológico perimetral hacia la reserva natural y zona de conservación del Cerro del Sapo.'
+    },
+    {
+      id: 'camino-casahuates',
+      name: 'Camino de los Casahuates',
+      top: '35.2%',
+      left: '65.7%',
+      dir: 'top',
+      icon: 'road',
+      description: 'Vía verde arbolada con casahuates que divide el Sector A y B, equipada con zanjas de infiltración pluviométrica.'
+    },
+    {
+      id: 'casas-huerta-a',
+      name: 'Casas-Huerta (Sector A)',
+      top: '52.6%',
+      left: '67.0%',
+      dir: 'top',
+      icon: 'home',
+      description: 'Sector A residencial planificado con lotes modulares, huertos individuales bio-intensivos e integración paisajística.'
+    },
+    {
+      id: 'camino-pistaches',
+      name: 'Camino de los Pistaches',
+      top: '58.9%',
+      left: '72.5%',
+      dir: 'right',
+      icon: 'road',
+      description: 'Avenida oriental bordeada por nogales y árboles frutales de pistache que conecta el sector A.'
+    },
+    {
+      id: 'cerrada-pistaches',
+      name: 'Cerrada de los Pistaches',
+      top: '67.6%',
+      left: '71.9%',
+      dir: 'bottom',
+      icon: 'road',
+      description: 'Callejón residencial contiguo a la bio-piscina de filtración natural y área de esparcimiento.'
+    },
+    {
+      id: 'pozo-comunitario',
+      name: 'Pozo Comunitario',
+      top: '67.2%',
+      left: '81.0%',
+      dir: 'right',
+      icon: 'water',
+      description: 'Pozo comunitario con autonomía hídrica que distribuye agua limpia a las 60 Casas-Huerta y zonas agrícolas.'
+    },
+    {
+      id: 'camino-huamuchil-sur',
+      name: 'Camino del Huamuchil (Sur)',
+      top: '79.7%',
+      left: '42.7%',
+      dir: 'left',
+      icon: 'road',
+      description: 'Tramo sur del Camino del Huamuchil que recorre la Sección C y conduce a la Cerrada del Huamuchil.'
+    },
+    {
+      id: 'cerrada-huamuchil',
+      name: 'Cerrada del Huamuchil',
+      top: '81.9%',
+      left: '51.6%',
+      dir: 'right',
+      icon: 'road',
+      description: 'Acceso residencial del extremo sur de la Sección C con sistemas permaculturales de recolección de agua.'
+    }
+  ];
 
   toggleFaq(id: number) {
     this.openFaqId.update(curr => (curr === id ? null : id));

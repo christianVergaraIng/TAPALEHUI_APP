@@ -13,20 +13,13 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-content">
-          <div class="hero-badge">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;">
-              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"/>
-              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-            </svg>
-            Comunidad Ecológica & Sostenible
-          </div>
           <h1 class="hero-title">
             Vivir en comunidad.<br/>
             <span class="gradient-text">Regenerar la naturaleza.</span><br/>
             Compartir el futuro.
           </h1>
           <p class="hero-subtitle">
-            Personas y naturaleza desde 1985, combinamos arquitectura entre huertas, agricultura regenerativa e inclusión social en el municipio indígena de Xoxocotla.
+            Personas y naturaleza desde 1985, combinamos arquitectura entre huertas, agricultura regenerativa e inclusión social en el Municipio indígena de Xoxocotla
           </p>
 
            <!--
