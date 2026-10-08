@@ -1018,7 +1018,7 @@ class CanvasInstance {
             </p>
           </div>
           <div class="map-intro-image-wrapper">
-            <img src="assets/ComunidadTapalehui.jpg" alt="Mapa Comunidad Tapalehui" class="map-intro-img" loading="lazy" decoding="async" />
+            <img src="assets/ComunidadTapalehui.png" alt="Mapa Comunidad Tapalehui" class="map-intro-img" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
