@@ -51,10 +51,12 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                       <path d="M8 5v14l11-7z"/>
                     </svg>
                   </div>
+                  <!--
                   <div class="video-tag">
                     <span class="video-label">VIDEO OFICIAL</span>
                     <span class="video-title">Presentación General</span>
                   </div>
+                  -->
                 </div>
               </div>
             }

@@ -978,7 +978,11 @@ class CanvasInstance {
         <h1 class="page-title">Redtapalehui</h1>
       </section>
 
-      <!-- Diagrama de Burbujas Interactivo con Efecto Glass iOS (Arriba) -->
+      <div class="ampliacion-image-wrapper">
+        <img src="assets/RedTapalehui.jpg" alt="Ampliación de Redtapalehui" class="ampliacion-img" loading="lazy" decoding="async" />
+      </div>
+
+      <!-- Diagrama de Burbujas Interactivo con Efecto Glass iOS (Arriba) 
       <section class="diagram-section">
         <div class="canvas-container">
           <canvas #canvas class="interactive-canvas"></canvas>
@@ -1004,6 +1008,7 @@ class CanvasInstance {
           </div>
         </div>
       </section>
+      -->
 
       <!-- Sección Mapa Ecosistema Red Tapalehui -->
       <section class="map-intro-section">
@@ -1039,6 +1044,11 @@ class CanvasInstance {
             </p>
           </div>
 
+          <div class="quantum-image-wrapper">
+            <img src="assets/RedTapalehui02.jpg" alt="Organización Cuántica Red Tapalehui" class="quantum-img" loading="lazy" decoding="async" />
+          </div>
+
+          <!--
           <div class="quantum-canvas-wrapper">
             <div class="canvas-container">
               <canvas #canvas class="interactive-canvas"></canvas>
@@ -1064,6 +1074,7 @@ class CanvasInstance {
               </div>
             </div>
           </div>
+          -->
         </div>
       </section>
 
@@ -1093,17 +1104,19 @@ class CanvasInstance {
               </video>
             } @else {
               <div class="video-poster" (click)="playVideo()">
-                <img src="assets/Tapalehui_VideoPlayer.jpg" alt="Presentación Red Tapalehui" class="poster-img" loading="lazy" decoding="async" />
+                <img src="assets/Tapalehui_VideoPlayer02.jpg" alt="Presentación Red Tapalehui" class="poster-img" loading="lazy" decoding="async" />
                 <div class="video-overlay">
                   <div class="play-button">
                     <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
                       <path d="M8 5v14l11-7z"/>
                     </svg>
                   </div>
+                  <!--
                   <div class="video-tag">
                     <span class="video-label">VIDEO OFICIAL</span>
                     <span class="video-title">Presentación Red Tapalehui</span>
                   </div>
+                  -->
                 </div>
               </div>
             }
@@ -1425,6 +1438,39 @@ class CanvasInstance {
       line-height: 1.65;
       color: var(--text-main);
       margin: 0;
+    }
+
+    .quantum-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      padding: 1.25rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .quantum-image-wrapper:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .quantum-img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      border-radius: 16px;
     }
 
     .quantum-canvas-wrapper {

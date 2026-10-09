@@ -34,6 +34,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
         <!-- Right Utilities -->
         <div class="header-actions">
+          <!-- Botón de cambio de tema (oculto por el momento)
           <button (click)="toggleTheme.emit()" class="theme-toggle-btn" aria-label="Cambiar tema">
             @if (isDarkMode()) {
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
@@ -46,6 +47,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
               </svg>
             }
           </button>
+          -->
 
           <button (click)="toggleMobileMenu()" class="mobile-hamburger" aria-label="Abrir menú">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">

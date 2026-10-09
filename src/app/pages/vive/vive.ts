@@ -4,7 +4,7 @@ import { CountUpComponent } from '../../components/count-up/count-up';
 @Component({
   selector: 'app-vive',
   standalone: true,
-  imports: [CountUpComponent],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="page-container">
@@ -26,11 +26,17 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             </svg>
             Prototipos
           </button>
+          <button (click)="setActiveTab('sustentable')" [class.active]="activeTab() === 'sustentable'" class="tab-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;">
+              <path d="M12 12v8m0-8v1h3a6 6 0 0 0 6-6V6h-3a6 6 0 0 0-6 6m0-2v1H9a6 6 0 0 1-6-6V4h3a6 6 0 0 1 6 6" />
+            </svg>
+            Sustentable
+          </button>
           <button (click)="setActiveTab('multimedia')" [class.active]="activeTab() === 'multimedia'" class="tab-btn">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;">
               <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
             </svg>
-            Galería & Videos
+            Evidencia
           </button>
           <!--
           <button (click)="setActiveTab('operativa')" [class.active]="activeTab() === 'operativa'" class="tab-btn">
@@ -99,14 +105,14 @@ import { CountUpComponent } from '../../components/count-up/count-up';
 
           <div class="masterplan-card">
             <div class="mp-header">
-              <h2>Master Plan Interactivo - La Vista</h2>
-              <p>Trazado de <app-count-up end="60"></app-count-up> lotes para Casas-Huerta, zonificación de áreas verdes compartidas y pozo común.</p>
+              <h2>La Vista</h2>
             </div>
 
             <div class="mp-visual">
               <div class="map-placeholder">
                 <img src="assets/LaVista01.jpg" alt="Trazado La Vista Master Plan" class="mp-bg-img" />
-                <div class="mp-overlay-points">
+
+                <!-- <div class="mp-overlay-points">
                   @for (pt of masterPlanPoints; track pt.id) {
                     <div 
                       class="mp-point" 
@@ -132,8 +138,11 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                     </div>
                   }
                 </div>
+-->
               </div>
             </div>
+
+            <!--
 
             @if (selectedPointDetail()) {
               <div class="point-info-box fade-in">
@@ -161,8 +170,11 @@ import { CountUpComponent } from '../../components/count-up/count-up';
                 <span class="stat-lbl">Bardas perimetrales opresivas</span>
               </div>
             </div>
+            -->
           </div>
+
         </section>
+        
       }
 
       <!-- TAB 2: PROTOTIPOS -->
@@ -202,6 +214,45 @@ import { CountUpComponent } from '../../components/count-up/count-up';
             }
           </div>
           -->
+        </section>
+      }
+
+      <!-- TAB 3: SUSTENTABLE -->
+      @if (activeTab() === 'sustentable') {
+        <section class="tab-content fade-in">
+          <div class="sustentable-container">
+            <!-- Video RedTapalehui -->
+            <section class="featured-story-video">
+              <div class="hero-video-box">
+                <div class="video-container">
+                  @if (isPlayingVideo()) {
+                    <video
+                      src="http://redtapalehui.com.mx/media/video_sustentabilidad.mp4"
+                      controls
+                      autoplay
+                      playsinline
+                      class="video-player">
+                    </video>
+                  } @else {
+                    <div class="video-poster" (click)="playVideo()">
+                      <img src="assets/Tapalehui_VideoPlayer02.jpg" alt="Presentación Red Tapalehui" class="poster-img" loading="lazy" decoding="async" />
+                      <div class="video-overlay">
+                        <div class="play-button">
+                          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            </section>
+
+            <p class="sustentable-desc-text">
+              La mitad del terreno será para una huerta con las características de agricultura regenerativa que se ha desarrollado en Casa Tapalehui con Pistaches, Café y Vainilla
+            </p>
+          </div>
         </section>
       }
 
@@ -1217,24 +1268,139 @@ import { CountUpComponent } from '../../components/count-up/count-up';
       height: 100%;
       object-fit: cover;
     }
+
+    /* Sustentable Tab & Video Player Styles */
+    .sustentable-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .featured-story-video {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-video-box {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+      background: #000;
+      aspect-ratio: 16/9;
+      width: 100%;
+    }
+
+    .video-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .video-player {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+      background: #000;
+      display: block;
+    }
+
+    .video-poster {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .poster-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .video-poster:hover .poster-img {
+      transform: scale(1.04);
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    .play-button {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--color-brand-primary, #7A8F4D);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(122, 143, 77, 0.6);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .video-poster:hover .play-button {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px rgba(160, 183, 107, 0.8);
+    }
+
+    .sustentable-desc-text {
+      font-family: var(--font-heading, 'Outfit', sans-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-align: center;
+      line-height: 1.6;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      background: var(--color-card-bg, #222A22);
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
   `]
 })
 export class ViveComponent {
-  activeTab = signal<'masterplan' | 'prototipos' | 'multimedia' | 'operativa'>('masterplan');
+  activeTab = signal<'masterplan' | 'prototipos' | 'sustentable' | 'multimedia' | 'operativa'>('masterplan');
   openFaqId = signal<number | null>(1);
 
-  setActiveTab(tab: 'masterplan' | 'prototipos' | 'multimedia' | 'operativa') {
+  // Video Player State
+  isPlayingVideo = signal<boolean>(false);
+
+  playVideo() {
+    this.isPlayingVideo.set(true);
+  }
+
+  setActiveTab(tab: 'masterplan' | 'prototipos' | 'sustentable' | 'multimedia' | 'operativa') {
     this.activeTab.set(tab);
   }
 
   // Multimedia Carousel State
   currentSlide = signal<number>(0);
   carouselImages = [
-    { src: 'assets/Multimedia01.jpg', title: 'Vista General del Desarrollo' },
+    { src: 'assets/Multimedia01.jpg', title: ' ' }
+    /*
     { src: 'assets/Investigacion02.jpg', title: 'Diálogos e Investigación Comunitaria' },
     { src: 'assets/Investigacion03.jpg', title: 'Espacios de Trabajo y Colaboración' },
     { src: 'assets/ParqueSapo.jpg', title: 'Parque del Sapo' },
     { src: 'assets/Granja Tehuixtlera.png', title: 'Granja Tehuixtlera' }
+    */
   ];
 
   nextSlide() {
